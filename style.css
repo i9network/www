@@ -15,7 +15,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
     min-height: 100vh;
 }
 
@@ -30,10 +30,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 71, 87, 0.1);
+    box-shadow: 0 2px 20px rgba(255, 71, 87, 0.1);
 }
 
 .nav-container {
@@ -70,7 +71,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #667eea;
+    color: #ff4757;
 }
 
 /* Hero Section */
@@ -78,7 +79,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -125,7 +126,7 @@ body {
 
 .btn-primary {
     background: white;
-    color: #667eea;
+    color: #ff4757;
 }
 
 .btn-primary:hover {
@@ -238,11 +239,14 @@ body {
     padding: 2rem;
     border-radius: 12px;
     background: #f8f9fa;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
+    border-color: rgba(255, 71, 87, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 71, 87, 0.1);
 }
 
 .feature-icon {
@@ -265,7 +269,7 @@ body {
 /* Preview Section */
 .preview-section {
     padding: 6rem 0;
-    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    background: linear-gradient(45deg, #f8f9fa, #fff5f5);
 }
 
 .section-subtitle {
@@ -348,11 +352,11 @@ body {
 .metric {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #667eea;
+    color: #ff4757;
 }
 
 .preview-btn {
-    background: #667eea;
+    background: #ff4757;
     color: white;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -362,8 +366,9 @@ body {
 }
 
 .preview-btn:hover {
-    background: #5a6fd8;
+    background: #ff3742;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
 }
 
 /* Roadmap Section */
@@ -413,8 +418,8 @@ body {
 }
 
 .timeline-item.current .timeline-marker {
-    background: #667eea;
-    box-shadow: 0 0 0 1px #667eea;
+    background: #ff4757;
+    box-shadow: 0 0 0 1px #ff4757;
     animation: pulse-marker 2s infinite;
 }
 
@@ -445,7 +450,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
     color: white;
     text-align: center;
 }
@@ -467,7 +472,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #333;
+    background: #2c2c2c;
     color: white;
     padding: 3rem 0 1rem;
 }
