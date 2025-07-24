@@ -46,13 +46,15 @@ body {
     height: 70px;
 }
 
-.logo h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.footer-logo-img {
+    height: 30px;
+    width: auto;
+    margin-bottom: 0.5rem;
 }
 
 .nav-links {
