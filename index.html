@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neurix – Enterprise Network Command Platform</title>
+  <meta name="description" content="Neurix by i9 Networks — monitor, manage, automate, and optimize large-scale ILL and distributed network environments from a single intelligent platform." />
+  <title>Neurix – Enterprise Network Command Center</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -183,7 +184,7 @@
   <header class="sticky top-0 z-50 border-b border-slate-200/80 dark:border-white/5 bg-white/80 dark:bg-slate-950/70 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5">
-        <img src="attached_assets/i9 logo-2_1753350504643.png" alt="i9 Networks" class="h-7 w-auto" />
+        <img src="assets/i9 logo-2_1753350504643.png" alt="i9 Networks" class="h-7 w-auto" />
         <span class="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-50">Neurix</span>
       </a>
 
@@ -276,208 +277,197 @@
           <div class="absolute -top-10 -right-6 w-48 h-48 bg-primary/25 blur-3xl rounded-full opacity-70"></div>
           <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-emerald-400/20 blur-3xl rounded-full opacity-60"></div>
 
-          <div class="relative noc-card rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-6">
-            <div class="flex items-center justify-between mb-5">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
+          <div class="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 dark:shadow-slate-900/60 border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-950">
+            <!-- Dashboard Top Bar -->
+            <div class="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80">
+              <div class="flex items-center gap-3">
+                <span class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">12,480</span>
+                <span class="text-[11px] text-slate-500 dark:text-slate-400">sites monitored</span>
+                <div class="flex items-center gap-1 ml-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                </div>
               </div>
-              <div class="flex items-center gap-2 rounded-full border border-slate-700/90 bg-slate-900/90 px-3 py-1.5 text-[11px] text-slate-300">
-                <span class="material-icons text-xs text-slate-400">travel_explore</span>
-                <span>Global ILL Network Overview</span>
+              <div class="hidden sm:flex items-center gap-2 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 px-3 py-1 text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                System Health: All Systems Operational
               </div>
-              <div class="flex items-center gap-2 text-[11px] text-slate-400">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Live</span>
+              <div class="flex items-center gap-3 text-[11px] text-slate-400">
+                <span class="hidden sm:inline flex items-center gap-1"><span class="material-icons text-xs">search</span> Search</span>
+                <span class="material-icons text-sm text-slate-500 dark:text-slate-400">person</span>
               </div>
             </div>
 
-            <div class="grid grid-cols-12 gap-4 lg:gap-5">
-              <!-- left metrics -->
-              <div class="col-span-4 flex flex-col gap-4">
-                <div class="rounded-xl border border-slate-700/90 bg-slate-950/80 px-3 py-3 space-y-2">
-                  <div class="flex items-center justify-between text-[11px] text-slate-400">
-                    <span>Uptime (rolling 30d)</span>
-                    <span class="flex items-center gap-1 text-emerald-300">
-                      <span class="material-icons text-xs">trending_up</span>
-                      99.982%
-                    </span>
+            <!-- Dashboard Tabs -->
+            <div class="flex items-center gap-1 px-4 sm:px-5 py-2 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 text-[11px]">
+              <span class="px-3 py-1 rounded-md bg-primary/10 dark:bg-primary/20 text-primary font-medium">Overview</span>
+              <span class="px-3 py-1 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300">Map View</span>
+              <span class="px-3 py-1 text-slate-500 dark:text-slate-400">Devices</span>
+              <span class="px-3 py-1 text-slate-500 dark:text-slate-400">Alerts</span>
+              <span class="px-3 py-1 text-slate-500 dark:text-slate-400">Reports</span>
+            </div>
+
+            <!-- Dashboard Body -->
+            <div class="grid grid-cols-12 gap-0">
+              <!-- Left Sidebar Metrics -->
+              <div class="col-span-4 border-r border-slate-100 dark:border-slate-800 p-3 sm:p-4 space-y-3">
+                <!-- Uptime card -->
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 space-y-2">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-slate-500 dark:text-slate-400">System Availability</span>
+                    <span class="text-slate-400 dark:text-slate-500">···</span>
                   </div>
-                  <div class="h-1.5 w-full rounded-full bg-slate-800 overflow-hidden">
-                    <div class="h-full w-[96%] rounded-full bg-gradient-to-r from-emerald-400 via-emerald-300 to-primary"></div>
+                  <div class="flex items-center gap-2">
+                    <span class="material-icons text-emerald-500 dark:text-emerald-400 text-lg">check_circle</span>
+                    <span class="text-2xl font-bold text-slate-900 dark:text-white">99.98%</span>
                   </div>
-                  <p class="text-[10px] text-slate-400">SLA breach risk: <span class="text-emerald-300">Low</span></p>
+                  <p class="text-[10px] text-slate-400">Uptime</p>
                 </div>
 
-                <div class="rounded-xl border border-slate-700/90 bg-slate-950/80 px-3 py-3">
-                  <div class="flex items-center justify-between mb-2">
-                    <p class="text-[11px] uppercase tracking-[0.16em] text-slate-400">Active incidents</p>
-                    <span class="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-medium text-amber-200">
-                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                      3 open
-                    </span>
+                <!-- Latency card -->
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 space-y-2">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-slate-500 dark:text-slate-400">Average Latency</span>
+                    <span class="text-slate-400 dark:text-slate-500">···</span>
                   </div>
-                  <div class="space-y-2 text-[11px]">
-                    <div class="flex items-center justify-between rounded-lg bg-slate-900/80 px-2 py-1.5 border border-slate-700/80">
-                      <span class="flex items-center gap-1 text-amber-200">
-                        <span class="material-icons text-xs">warning_amber</span>
-                        DC‑03 Latency Spike
-                      </span>
-                      <span class="text-slate-400">17m</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-slate-900 dark:text-white">22ms</span>
+                    <span class="text-[10px] text-slate-400">Recent data</span>
+                  </div>
+                  <svg viewBox="0 0 120 30" class="w-full h-6">
+                    <polyline fill="none" stroke="#e63d51" stroke-width="1.5" stroke-linecap="round"
+                              points="0,20 15,18 30,22 45,15 60,17 75,14 90,16 105,12 120,14" />
+                  </svg>
+                </div>
+
+                <!-- Packet Loss card -->
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 space-y-1">
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Packet Loss</p>
+                  <div class="flex items-center gap-2">
+                    <div class="flex gap-0.5 flex-1">
+                      <div class="h-4 flex-1 rounded-sm bg-emerald-400 dark:bg-emerald-500"></div>
+                      <div class="h-4 flex-1 rounded-sm bg-emerald-400 dark:bg-emerald-500"></div>
+                      <div class="h-4 flex-1 rounded-sm bg-emerald-300 dark:bg-emerald-600"></div>
+                      <div class="h-4 flex-1 rounded-sm bg-amber-300 dark:bg-amber-500"></div>
+                      <div class="h-4 flex-1 rounded-sm bg-emerald-400 dark:bg-emerald-500"></div>
                     </div>
-                    <div class="flex items-center justify-between rounded-lg bg-slate-900/60 px-2 py-1.5 border border-slate-700/60">
-                      <span class="flex items-center gap-1 text-rose-200">
-                        <span class="material-icons text-xs">report</span>
-                        MPLS link flap
-                      </span>
-                      <span class="text-slate-400">4m</span>
-                    </div>
-                    <div class="flex items-center justify-between rounded-lg bg-slate-900/40 px-2 py-1.5 border border-slate-700/30">
-                      <span class="flex items-center gap-1 text-slate-200">
-                        <span class="material-icons text-xs">info</span>
-                        Backup path engaged
-                      </span>
-                      <span class="text-slate-400">Auto</span>
-                    </div>
+                    <span class="text-sm font-semibold text-slate-900 dark:text-white">0.01%</span>
                   </div>
                 </div>
 
-                <div class="rounded-xl border border-slate-700/80 bg-slate-950/80 px-3 py-3 space-y-2">
-                  <div class="flex items-center justify-between text-[11px] text-slate-400">
-                    <span>Branch health</span>
-                    <span class="text-slate-300">1,280 sites</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 text-[10px] text-slate-300">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Stable
-                    <span class="w-2 h-2 rounded-full bg-amber-400 ml-2"></span> Degraded
-                    <span class="w-2 h-2 rounded-full bg-rose-500 ml-2"></span> Down
-                  </div>
-                  <div class="flex gap-1.5 pt-1">
-                    <div class="h-8 flex-1 rounded bg-emerald-400/40"></div>
-                    <div class="h-8 w-10 rounded bg-amber-400/40"></div>
-                    <div class="h-8 w-6 rounded bg-rose-500/40"></div>
+                <!-- Critical Alerts -->
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 space-y-2">
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Critical Alerts</p>
+                  <div class="space-y-1.5 text-[10px]">
+                    <div class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                      <span class="text-slate-700 dark:text-slate-300">Critical Alert</span>
+                      <span class="ml-auto text-slate-400">2d ago</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                      <span class="text-slate-700 dark:text-slate-300">Warning</span>
+                      <span class="ml-auto text-slate-400">2d ago</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- right visual -->
-              <div class="col-span-8 flex flex-col gap-4">
-                <div class="relative rounded-2xl border border-slate-700/90 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-950/80 px-4 pt-3 pb-4 overflow-hidden">
-                  <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
-                    <span class="uppercase tracking-[0.14em]">Live network topology</span>
-                    <span class="flex items-center gap-2">
-                      <span class="flex items-center gap-1 text-emerald-300">
-                        <span class="material-icons text-xs">speed</span>
-                        34.2ms avg latency
-                      </span>
-                      <span class="h-1 w-12 rounded-full bg-slate-700 overflow-hidden">
-                        <span class="block h-full w-3/4 bg-gradient-to-r from-emerald-400 via-amber-300 to-rose-400"></span>
-                      </span>
-                    </span>
-                  </div>
-
-                  <div class="relative h-40 sm:h-44 lg:h-48">
-                    <svg viewBox="0 0 400 220" class="absolute inset-0 w-full h-full text-slate-700/80">
-                      <defs>
-                        <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stop-color="#f97373" stop-opacity="0.9" />
-                          <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
-                        </radialGradient>
-                      </defs>
-                      <path d="M40 120 Q 120 40 200 80 T 360 60" fill="none" stroke="rgba(148,163,184,0.55)" stroke-width="1" />
-                      <path d="M40 140 Q 140 200 240 160 T 360 180" fill="none" stroke="rgba(148,163,184,0.35)" stroke-width="1" />
-                      <path d="M40 110 Q 120 120 200 130 T 360 120" fill="none" stroke="rgba(94,234,212,0.7)" stroke-width="1.4" />
-
-                      <circle cx="40" cy="120" r="4" fill="#22c55e" />
-                      <circle cx="200" cy="80" r="5" fill="#22c55e" />
-                      <circle cx="200" cy="130" r="5" fill="#facc15" />
-                      <circle cx="360" cy="60" r="5" fill="#22c55e" />
-                      <circle cx="360" cy="120" r="5" fill="#fb7185" />
-                      <circle cx="360" cy="180" r="5" fill="#22c55e" />
-
-                      <circle cx="360" cy="120" r="20" fill="url(#nodeGlow)" />
-                    </svg>
-
-                    <div class="absolute left-1 top-4 text-[10px] bg-slate-950/70 border border-slate-700/80 rounded-full px-2 py-0.5 text-slate-300">
-                      Core DC – Mumbai
-                    </div>
-                    <div class="absolute left-1 bottom-5 text-[10px] bg-slate-950/70 border border-slate-700/80 rounded-full px-2 py-0.5 text-slate-300">
-                      Edge PoPs – 84 sites
-                    </div>
-                    <div class="absolute right-2 top-6 text-[10px] flex flex-col gap-1">
-                      <span class="inline-flex items-center gap-1 rounded bg-slate-950/80 border border-emerald-400/40 px-2 py-0.5 text-emerald-200">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        West Region – Healthy
-                      </span>
-                      <span class="inline-flex items-center gap-1 rounded bg-slate-950/80 border border-amber-400/40 px-2 py-0.5 text-amber-200">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                        South Region – Investigating latency
-                      </span>
+              <!-- Right Main Area -->
+              <div class="col-span-8 p-3 sm:p-4 space-y-3">
+                <!-- Map Area -->
+                <div class="relative rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-3 overflow-hidden">
+                  <div class="flex items-center justify-between mb-2 text-[10px]">
+                    <span class="text-slate-400">Network Nodes</span>
+                    <div class="flex gap-2">
+                      <span class="text-slate-500 dark:text-slate-400">Add New Site</span>
+                      <span class="rounded px-2 py-0.5 bg-primary/10 dark:bg-primary/20 text-primary text-[10px] font-medium">Acknowledge Site</span>
                     </div>
                   </div>
+                  <svg viewBox="0 0 400 180" class="w-full h-32 sm:h-40">
+                    <!-- World map outline (simplified) -->
+                    <rect x="0" y="0" width="400" height="180" fill="none" />
+                    <!-- Continents as simplified shapes -->
+                    <path d="M60,60 Q80,40 120,50 L140,55 Q150,65 130,80 L100,85 Q70,80 60,60Z" class="fill-slate-200 dark:fill-slate-700/50" />
+                    <path d="M150,45 Q180,30 220,35 L250,40 Q260,55 240,70 L200,75 Q160,65 150,45Z" class="fill-slate-200 dark:fill-slate-700/50" />
+                    <path d="M180,80 Q200,75 210,90 L205,110 Q190,115 180,100Z" class="fill-slate-200 dark:fill-slate-700/50" />
+                    <path d="M260,40 Q300,25 350,35 L370,50 Q375,70 350,80 L310,85 Q270,75 260,40Z" class="fill-slate-200 dark:fill-slate-700/50" />
+                    <path d="M320,90 Q340,85 360,95 L365,120 Q350,135 330,125 L320,110Z" class="fill-slate-200 dark:fill-slate-700/50" />
+                    <path d="M80,120 Q100,110 130,115 L135,135 Q120,145 90,140Z" class="fill-slate-200 dark:fill-slate-700/50" />
 
-                  <div class="mt-3 flex items-center justify-between">
-                    <div class="flex items-center gap-2 text-[11px] text-slate-300">
-                      <span class="material-icons text-xs text-emerald-300">verified</span>
-                      <span>All platinum SLAs currently met</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-[10px] text-slate-400">
-                      <span class="uppercase tracking-[0.16em]">Next review window</span>
-                      <span class="rounded bg-slate-900/80 px-2 py-0.5 text-slate-200">02h 18m</span>
-                    </div>
-                  </div>
+                    <!-- Network nodes -->
+                    <circle cx="95" cy="65" r="4" class="fill-emerald-500" /><circle cx="95" cy="65" r="7" fill="none" class="stroke-emerald-400/40" stroke-width="1" />
+                    <circle cx="180" cy="50" r="5" class="fill-emerald-500" /><circle cx="180" cy="50" r="9" fill="none" class="stroke-emerald-400/40" stroke-width="1" />
+                    <circle cx="220" cy="45" r="3" class="fill-emerald-500" />
+                    <circle cx="200" cy="90" r="3" class="fill-amber-500" />
+                    <circle cx="300" cy="50" r="5" class="fill-emerald-500" /><circle cx="300" cy="50" r="9" fill="none" class="stroke-emerald-400/40" stroke-width="1" />
+                    <circle cx="340" cy="60" r="4" class="fill-emerald-500" />
+                    <circle cx="350" cy="100" r="3" class="fill-rose-500" /><circle cx="350" cy="100" r="8" fill="none" class="stroke-rose-400/40" stroke-width="1" />
+                    <circle cx="110" cy="130" r="3" class="fill-emerald-500" />
+                    <circle cx="330" cy="45" r="3" class="fill-amber-500" />
+                    <circle cx="130" cy="55" r="3" class="fill-emerald-500" />
+
+                    <!-- Connection lines -->
+                    <line x1="95" y1="65" x2="180" y2="50" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="0.5" stroke-dasharray="3,3" />
+                    <line x1="180" y1="50" x2="300" y2="50" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="0.5" stroke-dasharray="3,3" />
+                    <line x1="300" y1="50" x2="340" y2="60" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="0.5" stroke-dasharray="3,3" />
+                  </svg>
                 </div>
 
+                <!-- Bottom row: Performance trend + Device status + Events -->
                 <div class="grid grid-cols-3 gap-3 text-[11px]">
-                  <div class="col-span-2 rounded-xl border border-slate-700/80 bg-slate-950/90 px-3 py-2.5">
-                    <div class="flex items-center justify-between mb-2 text-slate-300">
-                      <span class="uppercase tracking-[0.16em] text-[10px] text-slate-400">Latency trend</span>
-                      <span class="text-slate-300">Global · 5 min</span>
+                  <!-- Performance Chart -->
+                  <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-slate-500 dark:text-slate-400 text-[10px] font-medium">Network Performance</span>
+                      <span class="text-[9px] text-slate-400">Past 24 hours</span>
                     </div>
-                    <svg viewBox="0 0 260 70" class="w-full h-14 text-slate-600">
-                      <polyline fill="none" stroke="rgba(148,163,184,0.5)" stroke-width="1"
-                                points="0,45 30,40 60,42 90,35 120,38 150,36 180,32 210,34 240,33 260,30" />
-                      <polyline fill="none" stroke="#f97373" stroke-width="1.6"
-                                points="0,50 30,48 60,46 90,40 120,42 150,44 180,38 210,35 240,30 260,32" />
+                    <svg viewBox="0 0 140 50" class="w-full h-10">
+                      <polyline fill="none" class="stroke-slate-300 dark:stroke-slate-600" stroke-width="1"
+                                points="0,35 20,30 40,32 60,28 80,25 100,27 120,22 140,20" />
+                      <polyline fill="none" stroke="#e63d51" stroke-width="1.5" stroke-linecap="round"
+                                points="0,40 20,35 40,38 60,30 80,32 100,28 120,25 140,22" />
                     </svg>
-                    <div class="mt-1 flex items-center justify-between text-[10px] text-slate-400">
-                      <span>p95 latency: <span class="text-slate-100">42.8ms</span></span>
-                      <span>Packet loss: <span class="text-emerald-300">0.12%</span></span>
+                    <div class="flex items-center justify-center gap-4 mt-1 text-[9px] text-slate-400">
+                      <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Online 82%</span>
+                      <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Warning 48%</span>
+                      <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Offline 75%</span>
                     </div>
                   </div>
 
-                  <div class="col-span-1 rounded-xl border border-slate-700/80 bg-slate-950/90 px-3 py-2.5 flex flex-col justify-between">
-                    <div class="flex items-center justify-between mb-1">
-                      <span class="uppercase tracking-[0.16em] text-[10px] text-slate-400">SLA status</span>
-                      <span class="material-icons text-xs text-emerald-300">shield</span>
+                  <!-- Device Status (donut placeholder) -->
+                  <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3">
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium mb-2">Device Status Summary</p>
+                    <svg viewBox="0 0 60 60" class="w-12 h-12 mx-auto">
+                      <circle cx="30" cy="30" r="24" fill="none" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="6" />
+                      <circle cx="30" cy="30" r="24" fill="none" stroke="#22c55e" stroke-width="6" stroke-dasharray="110 40" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                      <circle cx="30" cy="30" r="24" fill="none" stroke="#f59e0b" stroke-width="6" stroke-dasharray="30 120" stroke-linecap="round" transform="rotate(170 30 30)" />
+                    </svg>
+                  </div>
+
+                  <!-- Recent Events Log -->
+                  <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3">
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium mb-2">Recent Events</p>
+                    <div class="space-y-1.5 text-[9px]">
+                      <div class="flex items-center justify-between">
+                        <span class="text-slate-600 dark:text-slate-300">12:03:25 PM</span>
+                        <span class="text-emerald-600 dark:text-emerald-400">Confirmed</span>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-slate-600 dark:text-slate-300">12:03:23 PM</span>
+                        <span class="text-emerald-600 dark:text-emerald-400">Confirmed</span>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-slate-600 dark:text-slate-300">12:03:23 PM</span>
+                        <span class="text-amber-600 dark:text-amber-400">Warning</span>
+                      </div>
                     </div>
-                    <div class="space-y-1">
-                      <div class="flex items-center justify-between text-[10px]">
-                        <span class="text-slate-300">Platinum</span>
-                        <span class="text-emerald-300">100%</span>
-                      </div>
-                      <div class="h-1 rounded-full bg-slate-800 overflow-hidden">
-                        <div class="h-full w-full bg-gradient-to-r from-emerald-400 via-emerald-300 to-sky-400"></div>
-                      </div>
-                      <div class="flex items-center justify-between text-[10px]">
-                        <span class="text-slate-400">Gold</span>
-                        <span class="text-emerald-200">99.91%</span>
-                      </div>
-                      <div class="h-1 rounded-full bg-slate-800 overflow-hidden">
-                        <div class="h-full w-[94%] bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-400"></div>
-                      </div>
-                    </div>
-                    <p class="mt-2 text-[10px] text-slate-400">
-                      Penalty exposure this quarter:
-                      <span class="text-emerald-300 font-medium">₹ 0</span>
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -726,45 +716,53 @@
                 </p>
               </div>
             </div>
+
+            <div class="flex items-start gap-3 capability-item cursor-pointer rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 px-4 py-3"
+                 data-capability="acs">
+              <div class="mt-1 capability-dot w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+              <div class="space-y-1">
+                <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">06 · ACS (Auto Configuration Server)</p>
+                <p class="text-sm sm:text-base text-slate-900 dark:text-slate-50">
+                  TR‑069/TR‑369 compliant auto‑configuration for CPE devices across your entire subscriber base.
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  Push firmware, modify parameters, and diagnose CPE issues remotely — at scale.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 capability-item cursor-pointer rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 px-4 py-3"
+                 data-capability="pbx">
+              <div class="mt-1 capability-dot w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+              <div class="space-y-1">
+                <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">07 · PBX & Voice Management</p>
+                <p class="text-sm sm:text-base text-slate-900 dark:text-slate-50">
+                  Unified voice infrastructure management with call quality monitoring, trunk health, and failover controls.
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  SIP trunk analytics, MOS scoring, and automated voice path optimization across branches.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 capability-item cursor-pointer rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 px-4 py-3"
+                 data-capability="aaa">
+              <div class="mt-1 capability-dot w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+              <div class="space-y-1">
+                <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">08 · AAA (Authentication, Authorization & Accounting)</p>
+                <p class="text-sm sm:text-base text-slate-900 dark:text-slate-50">
+                  Centralized RADIUS/TACACS+ management for subscriber authentication, policy enforcement, and session accounting.
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  Real‑time session tracking, usage metering, and policy‑based access control across your network.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="section-fade" data-animate data-animate-delay="120">
-            <div id="capability-visual"
-                 class="relative rounded-2xl border border-slate-200 dark:border-slate-700/90 bg-white dark:bg-slate-950/90 px-4 sm:px-5 py-4 sm:py-5 overflow-hidden min-h-[240px]">
-              <div class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
-                Real‑time visibility snapshot
-              </div>
-              <p class="text-sm text-slate-200 mb-3">
-                Global view of core, aggregation, and branch links with live ILL status.
-              </p>
-              <div class="grid grid-cols-3 gap-3 text-[11px]">
-                <div class="col-span-2 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-                  <div class="flex items-center justify-between">
-                    <span class="text-slate-300">Topology heatmap</span>
-                    <span class="text-slate-400">All regions</span>
-                  </div>
-                  <div class="h-20 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-700 text-xs">
-                    Network canvas
-                  </div>
-                </div>
-                <div class="col-span-1 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-                  <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Key indicators</p>
-                  <div class="space-y-1.5">
-                    <div class="flex items-center justify-between">
-                      <span class="text-slate-300">Sites green</span>
-                      <span class="text-emerald-300">1,214</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <span class="text-slate-300">Degraded</span>
-                      <span class="text-amber-300">18</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <span class="text-slate-300">Down</span>
-                      <span class="text-rose-300">3</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/40">
+              <img src="assets/core_capabilities.png" alt="Neurix core capabilities — Network Visibility, Alerting, Multi-Tenant Management, Auto Provisioning, Billing & SLA, ACS, PBX, AAA" class="w-full h-auto" />
             </div>
           </div>
 
@@ -815,63 +813,9 @@
 
         <div class="relative">
           <div class="absolute inset-0 bg-gradient-to-tr from-rose-500/10 dark:from-rose-500/20 via-transparent to-transparent blur-3xl opacity-60"></div>
-          <div class="relative rounded-2xl border border-rose-500/30 dark:border-rose-500/40 bg-white dark:bg-slate-950/95 px-4 sm:px-5 py-4 sm:py-5">
-            <div class="flex items-center justify-between mb-3 text-[11px] text-rose-100">
-              <span class="inline-flex items-center gap-2">
-                <span class="material-icons text-xs">warning_amber</span>
-                <span class="uppercase tracking-[0.18em]">Active incident timeline</span>
-              </span>
-              <span class="rounded-full bg-rose-500/20 px-2 py-0.5 text-[10px]">DC‑03 · Latency &amp; packet loss</span>
-            </div>
-            <div class="space-y-3 text-[11px] text-slate-100">
-              <div class="flex gap-3">
-                <div class="flex flex-col items-center">
-                  <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
-                  <span class="flex-1 w-px bg-rose-500/40"></span>
-                </div>
-                <div class="flex-1 rounded-lg bg-slate-950/80 border border-rose-500/40 px-3 py-2">
-                  <div class="flex items-center justify-between mb-1">
-                    <span class="font-medium text-[11px]">Loss of redundancy on ILL‑Primary‑MUM‑03</span>
-                    <span class="text-rose-200">T+00:00</span>
-                  </div>
-                  <p class="text-[10px] text-rose-100/90">
-                    Packet loss exceeded 3% for 120s. SLA breach window started for 48 platinum customers.
-                  </p>
-                </div>
-              </div>
-              <div class="flex gap-3">
-                <div class="flex flex-col items-center">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                  <span class="flex-1 w-px bg-rose-500/30"></span>
-                </div>
-                <div class="flex-1 rounded-lg bg-slate-950/80 border border-amber-400/40 px-3 py-2">
-                  <div class="flex items-center justify-between mb-1">
-                    <span class="font-medium text-[11px]">Manual ticket raised by L1</span>
-                    <span class="text-amber-200">T+06:12</span>
-                  </div>
-                  <p class="text-[10px] text-amber-100/90">
-                    Traditional NMS triggered a generic "High Latency" alert. No business impact context or affected contracts.
-                  </p>
-                </div>
-              </div>
-              <div class="flex gap-3">
-                <div class="flex flex-col items-center">
-                  <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                </div>
-                <div class="flex-1 rounded-lg bg-slate-950/80 border border-slate-600 px-3 py-2">
-                  <div class="flex items-center justify-between mb-1">
-                    <span class="font-medium text-[11px]">What this looks like without Neurix</span>
-                    <span class="text-slate-300">T+20:00+</span>
-                  </div>
-                  <p class="text-[10px] text-slate-200/90">
-                    Multiple teams chasing the same issue, customer calls hitting support first, and finance calculating
-                    penalties after the fact.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-rose-500/30 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/40">
+            <img src="assets/problem_stats.png" alt="Network downtime cost statistics — ₹12L+ avg SLA penalty, 4.2 hrs mean resolution time, 73% issues detected reactively, 6+ tools stitched together" class="w-full h-auto" />
           </div>
-        </div>
       </div>
     </section>
 
@@ -895,53 +839,8 @@
           </div>
         </div>
 
-        <div class="relative rounded-2xl border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-950/95 px-4 sm:px-6 py-6 sm:py-7 overflow-hidden">
-          <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-primary/15 via-transparent to-transparent pointer-events-none"></div>
-          <div class="relative grid lg:grid-cols-3 gap-6 text-sm">
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Event‑driven ingest</p>
-              <div class="rounded-xl border border-slate-700 bg-slate-900/80 p-4 space-y-3">
-                <p class="font-medium text-slate-100">Telemetry, logs &amp; flows</p>
-                <ul class="text-xs text-slate-300 space-y-1">
-                  <li>SNMP, NetFlow/IPFIX, streaming telemetry</li>
-                  <li>Syslog, API &amp; webhook events, custom probes</li>
-                  <li>Normalisation pipeline with deduplication</li>
-                </ul>
-                <p class="text-[11px] text-slate-400">Back‑pressure aware, horizontally scalable ingest.</p>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Multi‑tenant control plane</p>
-              <div class="rounded-xl border border-slate-600 bg-slate-900/90 p-4 space-y-3">
-                <p class="font-medium text-slate-100">Tenant‑safe separation</p>
-                <ul class="text-xs text-slate-300 space-y-1">
-                  <li>Per‑tenant data domains with strict isolation</li>
-                  <li>Fine‑grained enterprise RBAC for all actions</li>
-                  <li>Immutable audit logging for every config change</li>
-                </ul>
-                <div class="rounded-lg border border-slate-700 bg-slate-950/90 p-3 text-[11px] text-slate-300">
-                  <span class="text-emerald-300 font-medium">High availability:</span> Active‑active clusters, zone‑aware
-                  placement, and rolling upgrades without loss of visibility.
-                </div>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-slate-400">Deployment &amp; ecosystem</p>
-              <div class="rounded-xl border border-slate-700 bg-slate-900/80 p-4 space-y-3">
-                <p class="font-medium text-slate-100">Cloud &amp; on‑prem ready</p>
-                <ul class="text-xs text-slate-300 space-y-1">
-                  <li>Managed SaaS for rapid rollouts</li>
-                  <li>On‑prem / private cloud for regulated environments</li>
-                  <li>API‑first integration with ticketing, CMDB &amp; billing</li>
-                </ul>
-                <p class="text-[11px] text-slate-400">
-                  Native support for modern observability stacks while remaining infrastructure‑agnostic.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/40">
+          <img src="assets/architecture_diagram.png" alt="Neurix platform architecture — Observability, Control, and Billing planes with multi-tenant isolation and API gateway" class="w-full h-auto" />
         </div>
       </div>
     </section>
@@ -1216,8 +1115,8 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
         <div class="col-span-2 lg:col-span-2">
-          <div class="flex items-center gap-2 mb-6">
-            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><span class="material-icons text-xl">layers</span></div>
+          <div class="flex items-center gap-2.5 mb-6">
+            <img src="assets/i9 logo-2_1753350504643.png" alt="i9 Networks" class="h-7 w-auto" />
             <span class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Neurix</span>
           </div>
           <p class="text-slate-500 dark:text-slate-400 max-w-sm mb-6 leading-relaxed">Mission‑critical network command platform. Monitor, manage, automate, and optimize large‑scale ILL and distributed network environments.</p>
@@ -1401,216 +1300,6 @@
         });
       });
 
-      // capability visual
-      const capabilityVisual = document.getElementById('capability-visual');
-      const capabilityItems = document.querySelectorAll('.capability-item');
-
-      const capabilityTemplates = {
-        visibility: `
-          <div class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
-            Real‑time visibility snapshot
-          </div>
-          <p class="text-sm text-slate-200 mb-3">
-            Global view of core, aggregation, and branch links with live ILL status and business impact overlays.
-          </p>
-          <div class="grid grid-cols-3 gap-3 text-[11px]">
-            <div class="col-span-2 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-slate-300">Topology heatmap</span>
-                <span class="text-slate-400">All regions</span>
-              </div>
-              <div class="h-20 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-700 text-xs">
-                Network canvas
-              </div>
-            </div>
-            <div class="col-span-1 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Key indicators</p>
-              <div class="space-y-1.5">
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Sites green</span>
-                  <span class="text-emerald-300">1,214</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Degraded</span>
-                  <span class="text-amber-300">18</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Down</span>
-                  <span class="text-rose-300">3</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-        incidents: `
-          <div class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
-            Intelligent alert triage
-          </div>
-          <p class="text-sm text-slate-200 mb-3">
-            Incident timelines that combine anomalies, correlated events, and recommended runbooks for your NOC.
-          </p>
-          <div class="space-y-2 text-[11px]">
-            <div class="flex items-start gap-2 rounded-lg bg-slate-900/90 border border-amber-400/40 px-3 py-2">
-              <span class="material-icons text-xs text-amber-300 mt-0.5">warning_amber</span>
-              <div class="flex-1">
-                <div class="flex items-center justify-between mb-0.5">
-                  <span class="text-slate-100">Latency spike – South region</span>
-                  <span class="text-amber-200">p95 &gt; 120ms</span>
-                </div>
-                <p class="text-[10px] text-slate-300">
-                  Affecting 23 branches and 2 platinum SLAs. Suggested action: shift traffic to alternate PoP.
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start gap-2 rounded-lg bg-slate-900/80 border border-slate-700 px-3 py-2">
-              <span class="material-icons text-xs text-emerald-300 mt-0.5">play_circle</span>
-              <div class="flex-1">
-                <div class="flex items-center justify-between mb-0.5">
-                  <span class="text-slate-100">Run automation: Reroute via DC‑04</span>
-                  <span class="text-slate-400">Estimated impact: -70% complaints</span>
-                </div>
-                <p class="text-[10px] text-slate-300">
-                  Validated backup path within thresholds. Changes will be logged to the incident timeline.
-                </p>
-              </div>
-            </div>
-          </div>
-        `,
-        multi_tenant: `
-          <div class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
-            Tenant &amp; region control
-          </div>
-          <p class="text-sm text-slate-200 mb-3">
-            Clean separation between enterprises, partners, and internal tenants with policy clarity.
-          </p>
-          <div class="grid grid-cols-3 gap-3 text-[11px]">
-            <div class="col-span-1 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Tenants</p>
-              <ul class="space-y-1 text-slate-300">
-                <li class="flex items-center justify-between">
-                  <span>Enterprise‑A</span>
-                  <span class="text-emerald-300">Healthy</span>
-                </li>
-                <li class="flex items-center justify-between">
-                  <span>ISP‑Wholesale</span>
-                  <span class="text-amber-300">Watch</span>
-                </li>
-                <li class="flex items-center justify-between">
-                  <span>Internal‑IT</span>
-                  <span class="text-emerald-300">Healthy</span>
-                </li>
-              </ul>
-            </div>
-            <div class="col-span-2 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">RBAC snapshot</p>
-              <div class="space-y-1.5">
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">NOC L1</span>
-                  <span class="text-slate-400">Read-only + runbooks</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Network engineering</span>
-                  <span class="text-slate-400">Config + approvals</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Customer success</span>
-                  <span class="text-slate-400">SLA reports only</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-        provisioning: `
-          <div class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
-            Automated provisioning &amp; validation
-          </div>
-          <p class="text-sm text-slate-200 mb-3">
-            Turn up new branches and services with built-in health checks and rollback safety.
-          </p>
-          <div class="grid grid-cols-3 gap-3 text-[11px]">
-            <div class="col-span-2 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-1.5">
-              <div class="flex items-center justify-between">
-                <span class="text-slate-300">Provision branch: BLR‑Warehouse‑07</span>
-                <span class="rounded-full bg-slate-800 px-2 py-0.5 text-slate-300 text-[10px]">Template v3.2</span>
-              </div>
-              <div class="h-1.5 rounded-full bg-slate-800 overflow-hidden">
-                <div class="h-full w-3/4 bg-gradient-to-r from-primary via-amber-300 to-emerald-300"></div>
-              </div>
-              <ul class="mt-1 space-y-0.5 text-slate-300">
-                <li>• Apply WAN, QoS, and VPN policies</li>
-                <li>• Validate ILL reachability and failover path</li>
-                <li>• Register branch in billing and SLA domains</li>
-              </ul>
-            </div>
-            <div class="col-span-1 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Validation</p>
-              <ul class="space-y-0.5 text-slate-300">
-                <li><span class="text-emerald-300">✓</span> Latency &lt; 40ms</li>
-                <li><span class="text-emerald-300">✓</span> Packet loss &lt; 0.5%</li>
-                <li><span class="text-amber-300">•</span> Jitter within tolerance</li>
-              </ul>
-            </div>
-          </div>
-        `,
-        billing: `
-          <div class="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
-            Billing &amp; SLA reporting
-          </div>
-          <p class="text-sm text-slate-200 mb-3">
-            Contract-aligned usage, downtime, and compliance views for finance, operations, and customers.
-          </p>
-          <div class="grid grid-cols-3 gap-3 text-[11px]">
-            <div class="col-span-2 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-slate-300">Customer: Enterprise‑A (Platinum)</span>
-                <span class="text-emerald-300">99.988% this quarter</span>
-              </div>
-              <div class="h-1.5 rounded-full bg-slate-800 overflow-hidden">
-                <div class="h-full w-[98%] bg-gradient-to-r from-emerald-400 via-emerald-300 to-sky-400"></div>
-              </div>
-              <p class="text-[10px] text-slate-400">
-                Contract SLA: 99.98% · Breach windows: 0 · Estimated credits: ₹0
-              </p>
-            </div>
-            <div class="col-span-1 rounded-xl border border-slate-700 bg-slate-900/80 p-3 space-y-2">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">GST-ready</p>
-              <ul class="space-y-0.5 text-slate-300">
-                <li>• Per-SLA line items</li>
-                <li>• Tax breakdown per state</li>
-                <li>• Audit-safe exports</li>
-              </ul>
-            </div>
-          </div>
-        `
-      };
-
-      function setCapabilityActive(el) {
-        capabilityItems.forEach(item => {
-          const dot = item.querySelector('.capability-dot');
-          dot && dot.classList.remove('capability-dot-active');
-        });
-        const dot = el.querySelector('.capability-dot');
-        dot && dot.classList.add('capability-dot-active');
-      }
-
-      capabilityItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const key = item.getAttribute('data-capability');
-          const tmpl = capabilityTemplates[key];
-          if (tmpl && capabilityVisual) {
-            capabilityVisual.innerHTML = tmpl;
-            setCapabilityActive(item);
-          }
-        });
-      });
-
-      if (capabilityItems[0]) {
-        setCapabilityActive(capabilityItems[0]);
-        const initialKey = capabilityItems[0].getAttribute('data-capability');
-        if (capabilityTemplates[initialKey] && capabilityVisual) {
-          capabilityVisual.innerHTML = capabilityTemplates[initialKey];
-        }
-      }
 
       // FAQ accordion
       document.querySelectorAll('.faq-item button').forEach(btn => {
