@@ -63,7 +63,10 @@
   </script>
 
   <style>
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    html { overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; max-width: 100vw; }
+    section { overflow-x: hidden; }
+    img, svg, video, canvas { max-width: 100%; height: auto; }
 
     .hero-grid {
       background:
@@ -225,7 +228,7 @@
         <div class="network-line"></div>
       </div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.1fr)] gap-12 lg:gap-16 items-center">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24 grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.1fr)] gap-8 sm:gap-12 lg:gap-16 items-center">
         <div class="space-y-8 section-fade" data-animate>
           <p class="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 dark:border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.20em] text-emerald-700 dark:text-emerald-300">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -233,53 +236,63 @@
           </p>
 
           <div class="space-y-4">
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight">
               Total Control Over
               <span class="block text-primary">Your Network Infrastructure.</span>
             </h1>
-            <p class="max-w-xl text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-              Monitor, manage, automate, and optimize large-scale ILL and distributed network environments from a
-              single intelligent platform — built for teams where connectivity simply cannot fail.
+            <p class="max-w-xl text-sm sm:text-base text-slate-600 dark:text-slate-300">
+              Monitor, manage & automate your entire network from one platform.
             </p>
           </div>
 
-          <div class="flex flex-wrap items-center gap-4 pt-2">
+          <div class="flex flex-wrap items-center gap-3 pt-2">
             <a href="#demo"
-               class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-white shadow-lg shadow-primary/40 hover:bg-primary/90 transition-colors">
-              <span>Request Enterprise Demo</span>
+               class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold tracking-wide text-white shadow-lg shadow-primary/40 hover:bg-primary/90 transition-colors">
+              <span>Request Demo</span>
               <span class="material-icons text-sm">campaign</span>
             </a>
             <a href="#platform"
-               class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+               class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
               <span class="material-icons text-sm text-primary">visibility</span>
               <span>Explore Platform</span>
             </a>
           </div>
 
-          <div class="flex flex-wrap gap-6 pt-6 border-t border-slate-200 dark:border-white/5 mt-6">
+          <div class="flex flex-wrap gap-4 sm:gap-6 pt-4 sm:pt-6 border-t border-slate-200 dark:border-white/5 mt-4 sm:mt-6">
             <div class="space-y-1">
-              <p class="text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Networks under management</p>
-              <p class="text-xl font-semibold text-slate-900 dark:text-slate-50">12,480<span class="text-xs text-slate-500 dark:text-slate-400 ml-1">+ sites</span></p>
+              <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400">Sites managed</p>
+              <div class="flex items-center gap-2">
+                <p class="text-xl font-bold text-slate-900 dark:text-slate-50">12,480+</p>
+                <svg viewBox="0 0 48 16" class="w-10 h-4"><polyline fill="none" stroke="#e63d51" stroke-width="1.5" stroke-linecap="round" points="0,12 8,10 16,11 24,7 32,8 40,5 48,3"/></svg>
+              </div>
             </div>
             <div class="space-y-1">
-              <p class="text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">Average uptime</p>
-              <p class="text-xl font-semibold text-emerald-600 dark:text-emerald-300">99.982%</p>
+              <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400">Uptime</p>
+              <div class="flex items-center gap-2">
+                <p class="text-xl font-bold text-emerald-600 dark:text-emerald-300">99.98%</p>
+                <div class="w-8 h-4 rounded-sm overflow-hidden flex items-end">
+                  <div class="w-full h-[96%] bg-gradient-to-t from-emerald-500 to-emerald-300 rounded-sm"></div>
+                </div>
+              </div>
             </div>
             <div class="space-y-1">
-              <p class="text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">SLA‑backed alerts</p>
-              <p class="text-xl font-semibold text-primary">24/7</p>
+              <p class="text-[10px] uppercase tracking-[0.22em] text-slate-400">SLA alerts</p>
+              <div class="flex items-center gap-2">
+                <p class="text-xl font-bold text-primary">24/7</p>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- HERO VISUAL -->
-        <div class="relative section-fade" data-animate data-animate-delay="120">
-          <div class="absolute -top-10 -right-6 w-48 h-48 bg-primary/25 blur-3xl rounded-full opacity-70"></div>
-          <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-emerald-400/20 blur-3xl rounded-full opacity-60"></div>
+        <div class="relative section-fade max-w-full overflow-hidden" data-animate data-animate-delay="120">
+          <div class="absolute -top-10 -right-6 w-48 h-48 bg-primary/25 blur-3xl rounded-full opacity-70 hidden sm:block"></div>
+          <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-emerald-400/20 blur-3xl rounded-full opacity-60 hidden sm:block"></div>
 
           <div class="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 dark:shadow-slate-900/60 border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-950">
             <!-- Dashboard Top Bar -->
-            <div class="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80">
+            <div class="flex items-center justify-between px-3 sm:px-5 py-2 sm:py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80">
               <div class="flex items-center gap-3">
                 <div class="flex items-center gap-2">
                   <img src="assets/i9 logo-2_1753350504643.png" alt="Neurix" class="h-5 w-auto" />
@@ -300,7 +313,7 @@
             </div>
 
             <!-- Dashboard Tabs -->
-            <div class="flex items-center gap-1 px-4 sm:px-5 py-2 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 text-[11px] overflow-x-auto">
+            <div class="flex items-center gap-1 px-3 sm:px-5 py-1.5 sm:py-2 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 text-[10px] sm:text-[11px] overflow-x-auto">
               <span class="px-3 py-1 rounded-md bg-primary/10 dark:bg-primary/20 text-primary font-medium whitespace-nowrap">Overview</span>
               <span class="px-3 py-1 text-slate-500 dark:text-slate-400 whitespace-nowrap">Hotspot</span>
               <span class="px-3 py-1 text-slate-500 dark:text-slate-400 whitespace-nowrap">Shield</span>
@@ -311,20 +324,20 @@
             </div>
 
             <!-- Dashboard Body: 6 Module Cards -->
-            <div class="p-3 sm:p-5">
-              <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div class="p-2 sm:p-5">
+              <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
 
                 <!-- Hotspot Card -->
-                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 sm:p-4 space-y-3 hover:border-primary/40 transition-colors">
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-2.5 sm:p-4 space-y-2 sm:space-y-3 hover:border-primary/40 transition-colors">
                   <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-lg bg-sky-100 dark:bg-sky-500/15 flex items-center justify-center">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-sky-100 dark:bg-sky-500/15 flex items-center justify-center">
                       <span class="material-icons text-sky-600 dark:text-sky-400 text-lg">wifi</span>
                     </div>
                     <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">Active</span>
                   </div>
                   <div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Hotspot</p>
-                    <p class="text-xl font-bold text-slate-900 dark:text-white">2,847</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium">Hotspot</p>
+                    <p class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">2,847</p>
                     <p class="text-[10px] text-slate-400">active sessions</p>
                   </div>
                   <svg viewBox="0 0 120 24" class="w-full h-5">
@@ -333,16 +346,16 @@
                 </div>
 
                 <!-- Shield Card -->
-                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 sm:p-4 space-y-3 hover:border-primary/40 transition-colors">
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-2.5 sm:p-4 space-y-2 sm:space-y-3 hover:border-primary/40 transition-colors">
                   <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center">
                       <span class="material-icons text-emerald-600 dark:text-emerald-400 text-lg">shield</span>
                     </div>
                     <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">Protected</span>
                   </div>
                   <div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Shield</p>
-                    <p class="text-xl font-bold text-slate-900 dark:text-white">14.2K</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium">Shield</p>
+                    <p class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">14.2K</p>
                     <p class="text-[10px] text-slate-400">threats blocked today</p>
                   </div>
                   <div class="flex gap-0.5">
@@ -353,16 +366,16 @@
                 </div>
 
                 <!-- Logs Card -->
-                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 sm:p-4 space-y-3 hover:border-primary/40 transition-colors">
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-2.5 sm:p-4 space-y-2 sm:space-y-3 hover:border-primary/40 transition-colors">
                   <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-500/15 flex items-center justify-center">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-violet-100 dark:bg-violet-500/15 flex items-center justify-center">
                       <span class="material-icons text-violet-600 dark:text-violet-400 text-lg">analytics</span>
                     </div>
                     <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">Streaming</span>
                   </div>
                   <div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Logs · NetFlow / Device</p>
-                    <p class="text-xl font-bold text-slate-900 dark:text-white">8.4M</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium">Logs</p>
+                    <p class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">8.4M</p>
                     <p class="text-[10px] text-slate-400">events / 24h</p>
                   </div>
                   <svg viewBox="0 0 120 24" class="w-full h-5">
@@ -371,36 +384,36 @@
                 </div>
 
                 <!-- ACS Card -->
-                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 sm:p-4 space-y-3 hover:border-primary/40 transition-colors">
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-2.5 sm:p-4 space-y-2 sm:space-y-3 hover:border-primary/40 transition-colors">
                   <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-500/15 flex items-center justify-center">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-teal-100 dark:bg-teal-500/15 flex items-center justify-center">
                       <span class="material-icons text-teal-600 dark:text-teal-400 text-lg">settings_remote</span>
                     </div>
                     <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">Online</span>
                   </div>
                   <div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">ACS · TR-069 / TR-369</p>
-                    <p class="text-xl font-bold text-slate-900 dark:text-white">6,120</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium">ACS · TR-069 / TR-369</p>
+                    <p class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">6,120</p>
                     <p class="text-[10px] text-slate-400">CPE devices managed</p>
                   </div>
-                  <div class="flex items-center gap-2 text-[9px] text-slate-400">
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Online 94%</span>
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Pending 4%</span>
-                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Offline 2%</span>
+                  <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[9px] text-slate-400">
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> 94%</span>
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> 4%</span>
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> 2%</span>
                   </div>
                 </div>
 
                 <!-- Incident Management Card -->
-                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 sm:p-4 space-y-3 hover:border-primary/40 transition-colors">
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-2.5 sm:p-4 space-y-2 sm:space-y-3 hover:border-primary/40 transition-colors">
                   <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-100 dark:bg-amber-500/15 flex items-center justify-center">
                       <span class="material-icons text-amber-600 dark:text-amber-400 text-lg">confirmation_number</span>
                     </div>
                     <span class="text-[10px] text-amber-600 dark:text-amber-400 font-medium bg-amber-50 dark:bg-amber-500/10 px-2 py-0.5 rounded-full">12 open</span>
                   </div>
                   <div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Incident Management</p>
-                    <p class="text-xl font-bold text-slate-900 dark:text-white">1.8h</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium">Incidents</p>
+                    <p class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">1.8h</p>
                     <p class="text-[10px] text-slate-400">avg. resolution time</p>
                   </div>
                   <div class="flex items-center justify-between text-[9px]">
@@ -413,15 +426,15 @@
                 </div>
 
                 <!-- BSS Card -->
-                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-3 sm:p-4 space-y-3 hover:border-primary/40 transition-colors">
+                <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/80 p-2.5 sm:p-4 space-y-2 sm:space-y-3 hover:border-primary/40 transition-colors">
                   <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-lg bg-primary/10 dark:bg-primary/15 flex items-center justify-center">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 dark:bg-primary/15 flex items-center justify-center">
                       <span class="material-icons text-primary text-lg">storefront</span>
                     </div>
                     <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">3 modules</span>
                   </div>
                   <div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">BSS</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium">BSS</p>
                     <div class="space-y-1 mt-1.5">
                       <div class="flex items-center justify-between text-[10px]">
                         <span class="text-slate-700 dark:text-slate-300">Product & Plans</span>
@@ -455,23 +468,25 @@
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
               Built for high‑dependency, multi‑site networks.
             </h2>
-            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              Whether you operate an ISP backbone, a healthcare network, or a nationwide enterprise WAN, Neurix gives you a
-              command‑center view with the controls to match.
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              A command‑center for ISP, enterprise & healthcare networks.
             </p>
           </div>
-          <div class="grid grid-cols-3 gap-4 text-xs text-slate-500 dark:text-slate-400 max-w-md">
-            <div>
-              <p class="uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500 mb-1">Audience</p>
-              <p>Enterprise IT, ISPs, LCOs, healthcare, hospitality, multi‑branch businesses.</p>
+          <div class="grid grid-cols-3 gap-3 max-w-md">
+            <div class="flex flex-col items-center gap-1 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20 p-3 text-center">
+              <span class="material-icons text-primary text-xl">groups</span>
+              <p class="text-lg font-bold text-slate-900 dark:text-white">5+</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Industries</p>
             </div>
-            <div>
-              <p class="uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500 mb-1">Scale</p>
-              <p>10–10,000+ branches, 50k+ subscribers, hybrid cloud + on‑prem.</p>
+            <div class="flex flex-col items-center gap-1 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 p-3 text-center">
+              <span class="material-icons text-emerald-600 dark:text-emerald-400 text-xl">cell_tower</span>
+              <p class="text-lg font-bold text-slate-900 dark:text-white">10K+</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Branches</p>
             </div>
-            <div>
-              <p class="uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500 mb-1">Coverage</p>
-              <p>ILL, MPLS, broadband overlays, LTE/5G backups, SD‑WAN.</p>
+            <div class="flex flex-col items-center gap-1 rounded-xl bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 p-3 text-center">
+              <span class="material-icons text-sky-600 dark:text-sky-400 text-xl">cable</span>
+              <p class="text-lg font-bold text-slate-900 dark:text-white">6+</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Link types</p>
             </div>
           </div>
         </div>
@@ -517,23 +532,19 @@
             </div>
           </div>
 
-          <div class="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] gap-8 lg:gap-10">
-            <div id="audience-copy" class="space-y-5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
-              <div>
-                <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 mb-2">Key pain points</p>
-                <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300">
-                  <li>Fragmented tools for WAN, campus, and branch visibility.</li>
-                  <li>No single place to see ILL health, SLAs, and branch‑level impact.</li>
-                  <li>Alert fatigue from noisy NMS systems without business context.</li>
-                </ul>
+          <div class="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] gap-6 sm:gap-8 lg:gap-10">
+            <div id="audience-copy" class="space-y-4 text-sm min-w-0">
+              <div class="space-y-2">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Challenges</p>
+                <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-400 text-sm">warning</span> Fragmented WAN & branch visibility</div>
+                <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-400 text-sm">warning</span> No unified SLA view</div>
+                <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-400 text-sm">warning</span> Alert fatigue without context</div>
               </div>
-              <div>
-                <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 mb-2">How Neurix helps</p>
-                <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300">
-                  <li>Unified command view across DCs, branches, and cloud edges.</li>
-                  <li>Business‑aware alerting that maps incidents to applications and SLAs.</li>
-                  <li>Automated remediation playbooks for recurring connectivity issues.</li>
-                </ul>
+              <div class="space-y-2">
+                <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">How Neurix helps</p>
+                <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-emerald-500 text-sm">check_circle</span> Unified observability</div>
+                <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-emerald-500 text-sm">check_circle</span> Business‑aware alerting</div>
+                <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-emerald-500 text-sm">check_circle</span> Automated playbooks</div>
               </div>
             </div>
 
@@ -546,8 +557,8 @@
                   <span>Sync with CMDB</span>
                 </span>
               </div>
-              <div class="grid grid-cols-3 gap-3 text-[11px]">
-                <div class="col-span-2 space-y-2">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 text-[10px] sm:text-[11px]">
+                <div class="col-span-2 space-y-2 min-w-0">
                   <div class="flex items-center justify-between">
                     <span class="text-slate-300">Branches</span>
                     <span class="text-slate-400">sorted by risk</span>
@@ -576,7 +587,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-span-1 space-y-2">
+                <div class="col-span-2 sm:col-span-1 space-y-2 min-w-0">
                   <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400">ILL health</div>
                   <div class="h-16 rounded-lg bg-slate-900 border border-slate-700 flex flex-col justify-between p-2">
                     <div class="flex items-center justify-between text-[10px]">
@@ -623,14 +634,19 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-1">Hotspot</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Captive portal management, bandwidth control, guest Wi‑Fi provisioning, and voucher‑based authentication for subscriber hotspot networks.
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Captive portal, bandwidth control, guest Wi‑Fi & voucher auth.
               </p>
             </div>
-            <div class="flex flex-wrap gap-2 text-[10px]">
-              <span class="px-2 py-0.5 rounded-full bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300">Captive Portal</span>
-              <span class="px-2 py-0.5 rounded-full bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300">Bandwidth Mgmt</span>
-              <span class="px-2 py-0.5 rounded-full bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300">Voucher System</span>
+            <div class="mt-auto pt-2">
+              <svg viewBox="0 0 200 40" class="w-full h-8">
+                <defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0ea5e9" stop-opacity="0.3"/><stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0,32 20,28 40,30 60,22 80,25 100,18 120,20 140,14 160,16 180,10 200,12 L200,40 L0,40Z" fill="url(#hg)" />
+                <polyline fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round" points="0,32 20,28 40,30 60,22 80,25 100,18 120,20 140,14 160,16 180,10 200,12" />
+              </svg>
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>2.8K sessions</span><span class="text-sky-500">↑12%</span>
+              </div>
             </div>
           </div>
 
@@ -641,14 +657,24 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-1">Shield</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Network security layer with DDoS protection, firewall rule management, threat intelligence feeds, and real‑time anomaly detection across all edges.
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                DDoS protection, firewall management & threat intelligence.
               </p>
             </div>
-            <div class="flex flex-wrap gap-2 text-[10px]">
-              <span class="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">DDoS Protection</span>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">Firewall</span>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">Threat Intel</span>
+            <div class="mt-auto pt-2 space-y-1.5">
+              <div class="flex items-center gap-2 text-[10px]">
+                <span class="text-slate-400">Today</span>
+                <div class="flex-1 h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden flex">
+                  <div class="h-full bg-emerald-400" style="width:82%"></div>
+                  <div class="h-full bg-amber-400" style="width:12%"></div>
+                  <div class="h-full bg-rose-400" style="width:6%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-[10px]">
+                <span class="text-emerald-500">■ Blocked 82%</span>
+                <span class="text-amber-500">■ Flagged 12%</span>
+                <span class="text-rose-500">■ Critical 6%</span>
+              </div>
             </div>
           </div>
 
@@ -659,14 +685,23 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-1">Logs — NetFlow / Device</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Centralized log aggregation with NetFlow/IPFIX analytics, device syslog collection, traffic pattern visibility, and bandwidth accounting.
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                NetFlow/IPFIX analytics, device syslog & traffic visibility.
               </p>
             </div>
-            <div class="flex flex-wrap gap-2 text-[10px]">
-              <span class="px-2 py-0.5 rounded-full bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300">NetFlow/IPFIX</span>
-              <span class="px-2 py-0.5 rounded-full bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300">Syslog</span>
-              <span class="px-2 py-0.5 rounded-full bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300">Traffic Analytics</span>
+            <div class="mt-auto pt-2">
+              <div class="flex items-end gap-1 h-8">
+                <div class="flex-1 rounded-sm bg-violet-200 dark:bg-violet-500/30" style="height:45%"></div>
+                <div class="flex-1 rounded-sm bg-violet-200 dark:bg-violet-500/30" style="height:60%"></div>
+                <div class="flex-1 rounded-sm bg-violet-300 dark:bg-violet-500/40" style="height:50%"></div>
+                <div class="flex-1 rounded-sm bg-violet-300 dark:bg-violet-500/40" style="height:75%"></div>
+                <div class="flex-1 rounded-sm bg-violet-400 dark:bg-violet-500/50" style="height:65%"></div>
+                <div class="flex-1 rounded-sm bg-violet-400 dark:bg-violet-500/50" style="height:85%"></div>
+                <div class="flex-1 rounded-sm bg-violet-500 dark:bg-violet-400" style="height:100%"></div>
+              </div>
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>8.4M events</span><span class="text-violet-500">past 24h</span>
+              </div>
             </div>
           </div>
 
@@ -677,14 +712,21 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-1">ACS — TR‑069 / TR‑369</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Auto Configuration Server for CPE lifecycle management — firmware upgrades, parameter provisioning, remote diagnostics, and bulk device operations.
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                CPE firmware, remote diagnostics & bulk config at scale.
               </p>
             </div>
-            <div class="flex flex-wrap gap-2 text-[10px]">
-              <span class="px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-500/10 text-teal-700 dark:text-teal-300">TR‑069</span>
-              <span class="px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-500/10 text-teal-700 dark:text-teal-300">TR‑369</span>
-              <span class="px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-500/10 text-teal-700 dark:text-teal-300">Firmware OTA</span>
+            <div class="mt-auto pt-2 flex items-center gap-3">
+              <svg viewBox="0 0 44 44" class="w-10 h-10 shrink-0">
+                <circle cx="22" cy="22" r="18" fill="none" class="stroke-slate-200 dark:stroke-slate-700" stroke-width="4" />
+                <circle cx="22" cy="22" r="18" fill="none" stroke="#14b8a6" stroke-width="4" stroke-dasharray="106 8" stroke-linecap="round" transform="rotate(-90 22 22)" />
+                <circle cx="22" cy="22" r="18" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5 109" stroke-linecap="round" transform="rotate(250 22 22)" />
+              </svg>
+              <div class="text-[10px] space-y-0.5">
+                <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span> <span class="text-slate-600 dark:text-slate-300">Online 94%</span></div>
+                <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> <span class="text-slate-600 dark:text-slate-300">Pending 4%</span></div>
+                <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> <span class="text-slate-600 dark:text-slate-300">Offline 2%</span></div>
+              </div>
             </div>
           </div>
 
@@ -695,14 +737,21 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-1">Incident Management</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Built‑in ticketing engine with SLA tracking, automated escalation rules, NOC workflows, and full incident lifecycle management tied to network events.
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Ticketing, SLA tracking & automated escalation workflows.
               </p>
             </div>
-            <div class="flex flex-wrap gap-2 text-[10px]">
-              <span class="px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300">Ticketing</span>
-              <span class="px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300">SLA Tracking</span>
-              <span class="px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300">Escalation</span>
+            <div class="mt-auto pt-2 space-y-1">
+              <div class="flex justify-between text-[10px]">
+                <span class="text-slate-400">SLA compliance</span>
+                <span class="text-emerald-500 font-semibold">98.2%</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                <div class="h-full rounded-full bg-gradient-to-r from-amber-400 to-emerald-400" style="width:98%"></div>
+              </div>
+              <div class="flex justify-between text-[10px] text-slate-400">
+                <span>12 open</span><span>Avg 1.8h resolution</span>
+              </div>
             </div>
           </div>
 
@@ -713,8 +762,8 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-slate-900 dark:text-white mb-1">BSS</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
-                Complete business support system covering the commercial side of your network operations.
+              <p class="text-sm text-slate-500 dark:text-slate-400 mb-3">
+                Business operations & commercial management.
               </p>
               <div class="space-y-2">
                 <div class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-200">
@@ -746,34 +795,49 @@
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
             When connectivity fails, business stops.
           </h2>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
-            Every minute of ILL degradation or branch‑level outage directly impacts revenue, operations, and customer trust.
-            Neurix is designed for environments where "we'll look into it later" is not an option.
+          <p class="text-sm text-slate-600 dark:text-slate-300 max-w-xl">
+            ILL degradation costs revenue and trust. Neurix is built for environments where downtime isn't an option.
           </p>
           <dl class="grid sm:grid-cols-2 gap-4 text-sm">
-            <div class="rounded-xl border border-rose-500/40 bg-rose-500/10 p-4">
-              <dt class="text-xs uppercase tracking-[0.18em] text-rose-600 dark:text-rose-200 mb-1">Downtime penalties</dt>
-              <dd class="text-slate-700 dark:text-slate-50">
-                SLA breaches, credits, and regulatory penalties erode already thin margins for ISPs and enterprises.
-              </dd>
+            <div class="rounded-xl border border-rose-500/40 bg-rose-500/10 p-3 flex items-center gap-3">
+              <div class="text-center shrink-0">
+                <p class="text-lg font-bold text-rose-600 dark:text-rose-200 leading-none">₹12L+</p>
+                <p class="text-[9px] text-rose-400">avg penalty</p>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold text-rose-600 dark:text-rose-200">Downtime penalties</dt>
+                <dd class="text-xs text-slate-600 dark:text-slate-300">SLA breaches & regulatory costs</dd>
+              </div>
             </div>
-            <div class="rounded-xl border border-amber-400/40 bg-amber-500/10 p-4">
-              <dt class="text-xs uppercase tracking-[0.18em] text-amber-600 dark:text-amber-200 mb-1">Manual monitoring</dt>
-              <dd class="text-slate-700 dark:text-slate-50">
-                Spreadsheet‑driven checks and siloed NMS tools create blind spots that only appear as customer complaints.
-              </dd>
+            <div class="rounded-xl border border-amber-400/40 bg-amber-500/10 p-3 flex items-center gap-3">
+              <div class="text-center shrink-0">
+                <p class="text-lg font-bold text-amber-600 dark:text-amber-200 leading-none">6+</p>
+                <p class="text-[9px] text-amber-400">tools used</p>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold text-amber-600 dark:text-amber-200">Manual monitoring</dt>
+                <dd class="text-xs text-slate-600 dark:text-slate-300">Siloed tools & blind spots</dd>
+              </div>
             </div>
-            <div class="rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-900/60 p-4">
-              <dt class="text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-300 mb-1">Distributed complexity</dt>
-              <dd class="text-slate-700 dark:text-slate-50">
-                Cloud, on‑prem, and remote sites running on different stacks without a single system of record.
-              </dd>
+            <div class="rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-900/60 p-3 flex items-center gap-3">
+              <div class="text-center shrink-0">
+                <p class="text-lg font-bold text-slate-700 dark:text-slate-200 leading-none">73%</p>
+                <p class="text-[9px] text-slate-400">reactive</p>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold text-slate-700 dark:text-slate-200">Distributed complexity</dt>
+                <dd class="text-xs text-slate-600 dark:text-slate-300">No single system of record</dd>
+              </div>
             </div>
-            <div class="rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-900/60 p-4">
-              <dt class="text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-300 mb-1">Reactive firefighting</dt>
-              <dd class="text-slate-700 dark:text-slate-50">
-                Teams stuck reacting to outages instead of proactively optimizing capacity, routing, and SLAs.
-              </dd>
+            <div class="rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-900/60 p-3 flex items-center gap-3">
+              <div class="text-center shrink-0">
+                <p class="text-lg font-bold text-slate-700 dark:text-slate-200 leading-none">4.2h</p>
+                <p class="text-[9px] text-slate-400">avg MTTR</p>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold text-slate-700 dark:text-slate-200">Reactive firefighting</dt>
+                <dd class="text-xs text-slate-600 dark:text-slate-300">Reacting vs. optimizing</dd>
+              </div>
             </div>
           </dl>
         </div>
@@ -795,15 +859,25 @@
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
               Built like critical infrastructure, not a marketing dashboard.
             </h2>
-            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              Neurix is an event‑driven, multi‑tenant platform with hard separation between observability, control, and
-              billing planes — ready for both cloud and on‑prem deployments.
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              Event‑driven, multi‑tenant. Cloud & on‑prem ready.
             </p>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <div class="flex items-center gap-2 rounded-lg bg-primary/10 dark:bg-primary/15 px-3 py-1.5">
+                <span class="material-icons text-primary text-sm">layers</span>
+                <span class="text-xs font-semibold text-primary">3‑Plane Architecture</span>
+              </div>
+              <div class="flex items-center gap-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 px-3 py-1.5">
+                <span class="material-icons text-emerald-600 dark:text-emerald-400 text-sm">security</span>
+                <span class="text-xs font-semibold text-emerald-700 dark:text-emerald-300">RBAC + Audit</span>
+              </div>
+              <div class="flex items-center gap-2 rounded-lg bg-sky-50 dark:bg-sky-500/10 px-3 py-1.5">
+                <span class="material-icons text-sky-600 dark:text-sky-400 text-sm">cloud_done</span>
+                <span class="text-xs font-semibold text-sky-700 dark:text-sky-300">Cloud & On‑Prem</span>
+              </div>
+            </div>
           </div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 max-w-md">
-            Designed for compliance‑sensitive sectors, with auditability and RBAC embedded into every action. No hidden
-            black boxes, no opaque magic.
-          </div>
+
         </div>
 
         <div class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/40">
@@ -820,35 +894,65 @@
           <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
             ILL Monitoring Platform for distributed, always‑on networks.
           </h2>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            Neurix combines active and passive probes to give you a true <strong class="font-semibold">ILL Monitoring
-            Platform</strong> across core, aggregation, and branch links. It continuously correlates network events with
-            applications, SLAs, and contractual commitments so your team sees business impact, not just raw metrics.
-          </p>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            For enterprises, Neurix operates as an <strong class="font-semibold">Enterprise Network Monitoring System</strong>
-            that unifies WAN, LAN, Wi‑Fi, and remote access visibility. For service providers in India, it functions as
-            <strong class="font-semibold">ISP Network Management Software</strong> tuned to local ILL realities, last‑mile
-            variability, and GST‑linked billing requirements.
-          </p>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            Because SLAs drive real money, Neurix includes a dedicated <strong class="font-semibold">SLA Tracking System
-            for ISPs</strong> that reconciles measured performance with customer contracts. Multi‑region enterprises can
-            finally rely on a single <strong class="font-semibold">Multi‑Branch Network Visibility Platform</strong> instead
-            of stitching together NMS tools, exports, and spreadsheets.
-          </p>
+          <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <div class="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/15 flex items-center justify-center shrink-0">
+                <span class="material-icons text-primary text-lg">monitoring</span>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white text-sm mb-0.5">ILL Monitoring</p>
+                <svg viewBox="0 0 80 20" class="w-16 h-4 mt-0.5"><polyline fill="none" stroke="#e63d51" stroke-width="1.5" stroke-linecap="round" points="0,16 12,12 24,14 36,8 48,10 60,6 72,4 80,3"/></svg>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <div class="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/15 flex items-center justify-center shrink-0">
+                <span class="material-icons text-primary text-lg">apartment</span>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white text-sm mb-0.5">Enterprise Monitoring</p>
+                <div class="flex gap-1 mt-1">
+                  <span class="px-1.5 py-0.5 text-[9px] rounded bg-primary/10 text-primary">WAN</span>
+                  <span class="px-1.5 py-0.5 text-[9px] rounded bg-primary/10 text-primary">LAN</span>
+                  <span class="px-1.5 py-0.5 text-[9px] rounded bg-primary/10 text-primary">Wi‑Fi</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <div class="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/15 flex items-center justify-center shrink-0">
+                <span class="material-icons text-primary text-lg">router</span>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white text-sm mb-0.5">ISP Management</p>
+                <div class="h-1.5 w-full rounded-full bg-slate-200 dark:bg-slate-700 mt-1.5 overflow-hidden"><div class="h-full w-[88%] rounded-full bg-gradient-to-r from-primary to-emerald-400"></div></div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+              <div class="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/15 flex items-center justify-center shrink-0">
+                <span class="material-icons text-primary text-lg">verified</span>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white text-sm mb-0.5">SLA Tracking</p>
+                <div class="flex items-center gap-1 mt-1 text-[10px]"><span class="text-emerald-500 font-semibold">99.9%</span><span class="text-slate-400">target met</span></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="rounded-2xl border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-950/90 p-5 sm:p-6 space-y-4 text-sm">
-          <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">For search engines and humans</p>
-          <p class="text-slate-600 dark:text-slate-200">
-            Every metric, report, and control in Neurix is designed for operational reality first, then exposed as
-            searchable, well‑documented concepts. That means when your team searches for "ILL jitter issues on East
-            region branches" or "SLA compliance per ISP PoP", they find real answers — not marketing pages.
-          </p>
-          <p class="text-slate-600 dark:text-slate-200">
-            The same clarity applies to how your customers see you: clean SLA reports, defensible billing, and a single,
-            trustworthy narrative whenever connectivity is questioned.
-          </p>
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Built for operational reality</p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="material-icons text-emerald-500 text-lg">search</span>
+              <p class="text-sm text-slate-600 dark:text-slate-200">Real answers, not marketing pages.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-icons text-emerald-500 text-lg">description</span>
+              <p class="text-sm text-slate-600 dark:text-slate-200">Clean SLA reports & defensible billing.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-icons text-emerald-500 text-lg">hub</span>
+              <p class="text-sm text-slate-600 dark:text-slate-200">Single source of truth for all stakeholders.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -862,24 +966,31 @@
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
               Schedule a personalised Neurix walkthrough.
             </h2>
-            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
-              Share a few details about your network footprint and we'll show you exactly how Neurix can map your ILL links,
-              branches, and SLAs — using scenarios that match your reality.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-              <li class="flex items-center gap-2">
-                <span class="material-icons text-xs text-emerald-600 dark:text-emerald-300">check_circle</span>
-                Live demo tailored to your topology and sectors.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-icons text-xs text-emerald-600 dark:text-emerald-300">check_circle</span>
-                Deep dive into incident workflows, SLAs, and reporting.
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-icons text-xs text-emerald-600 dark:text-emerald-300">check_circle</span>
-                Joint review with IT, NOC, and finance stakeholders.
-              </li>
-            </ul>
+            <div class="flex flex-wrap gap-4 mt-2">
+              <div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                <span class="material-icons text-xs text-emerald-500">check_circle</span> Tailored demo
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                <span class="material-icons text-xs text-emerald-500">check_circle</span> SLA & workflow deep dive
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                <span class="material-icons text-xs text-emerald-500">check_circle</span> Multi-team review
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-4">
+              <div class="flex items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1.5">
+                <span class="material-icons text-emerald-500 text-sm">lock</span>
+                <span class="text-[10px] text-slate-600 dark:text-slate-300 font-medium">No spam</span>
+              </div>
+              <div class="flex items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1.5">
+                <span class="material-icons text-primary text-sm">schedule</span>
+                <span class="text-[10px] text-slate-600 dark:text-slate-300 font-medium">Response in 24h</span>
+              </div>
+              <div class="flex items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1.5">
+                <span class="material-icons text-amber-500 text-sm">verified_user</span>
+                <span class="text-[10px] text-slate-600 dark:text-slate-300 font-medium">SOC 2 compliant</span>
+              </div>
+            </div>
           </div>
 
           <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950/90 p-5 sm:p-6 lg:p-7 shadow-[0_22px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_22px_60px_rgba(15,23,42,0.9)]">
@@ -988,6 +1099,7 @@
           <div class="faq-item border border-slate-200 dark:border-slate-700/80 rounded-xl bg-white dark:bg-slate-950/80 overflow-hidden">
             <button type="button" class="w-full flex items-center justify-between px-4 sm:px-5 py-3 text-left text-sm"
                     aria-expanded="false">
+              <span class="material-icons text-primary text-sm mr-2">help_outline</span>
               <span class="font-medium text-slate-800 dark:text-slate-100">What is ILL monitoring?</span>
               <span class="faq-icon material-icons text-sm text-slate-400 transition-transform">chevron_right</span>
             </button>
@@ -1001,6 +1113,7 @@
           <div class="faq-item border border-slate-200 dark:border-slate-700/80 rounded-xl bg-white dark:bg-slate-950/80 overflow-hidden">
             <button type="button" class="w-full flex items-center justify-between px-4 sm:px-5 py-3 text-left text-sm"
                     aria-expanded="false">
+              <span class="material-icons text-primary text-sm mr-2">help_outline</span>
               <span class="font-medium text-slate-800 dark:text-slate-100">How does Neurix help manage SLAs?</span>
               <span class="faq-icon material-icons text-sm text-slate-400 transition-transform">chevron_right</span>
             </button>
@@ -1014,6 +1127,7 @@
           <div class="faq-item border border-slate-200 dark:border-slate-700/80 rounded-xl bg-white dark:bg-slate-950/80 overflow-hidden">
             <button type="button" class="w-full flex items-center justify-between px-4 sm:px-5 py-3 text-left text-sm"
                     aria-expanded="false">
+              <span class="material-icons text-primary text-sm mr-2">help_outline</span>
               <span class="font-medium text-slate-800 dark:text-slate-100">Can Neurix handle multi‑branch enterprise networks?</span>
               <span class="faq-icon material-icons text-sm text-slate-400 transition-transform">chevron_right</span>
             </button>
@@ -1027,6 +1141,7 @@
           <div class="faq-item border border-slate-200 dark:border-slate-700/80 rounded-xl bg-white dark:bg-slate-950/80 overflow-hidden">
             <button type="button" class="w-full flex items-center justify-between px-4 sm:px-5 py-3 text-left text-sm"
                     aria-expanded="false">
+              <span class="material-icons text-primary text-sm mr-2">help_outline</span>
               <span class="font-medium text-slate-800 dark:text-slate-100">Is the platform GST compliant?</span>
               <span class="faq-icon material-icons text-sm text-slate-400 transition-transform">chevron_right</span>
             </button>
@@ -1039,6 +1154,7 @@
           <div class="faq-item border border-slate-200 dark:border-slate-700/80 rounded-xl bg-white dark:bg-slate-950/80 overflow-hidden">
             <button type="button" class="w-full flex items-center justify-between px-4 sm:px-5 py-3 text-left text-sm"
                     aria-expanded="false">
+              <span class="material-icons text-primary text-sm mr-2">help_outline</span>
               <span class="font-medium text-slate-800 dark:text-slate-100">Can it be deployed on‑prem?</span>
               <span class="faq-icon material-icons text-sm text-slate-400 transition-transform">chevron_right</span>
             </button>
@@ -1057,11 +1173,16 @@
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
           Ready to take control of your network?
         </h2>
-        <p class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-          Stop reacting to outages. Start managing proactively with a command‑center built for teams that own
-          connectivity — not just consume it.
+        <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
+          Proactive management for teams that own connectivity.
         </p>
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="flex items-center justify-center gap-3 mt-4">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse" style="animation-delay:0.3s"></span>
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse" style="animation-delay:0.6s"></span>
+          <span class="text-[10px] text-slate-400">12,480 sites monitored live</span>
+        </div>
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#demo"
              class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/40 hover:bg-primary/90 transition-colors">
             <span>Request Enterprise Demo</span>
@@ -1175,64 +1296,24 @@
       // audience selector
       const audienceData = {
         enterprise_it: {
-          pain: [
-            'Fragmented tools for WAN, campus, and branch visibility.',
-            'No single view of ILL health, SLAs, and branch-level impact.',
-            'Alert fatigue from noisy NMS systems without business context.'
-          ],
-          solutions: [
-            'Unify observability across DCs, cloud, and branches in one pane of glass.',
-            'Correlate incidents to applications, users, and contracts, not just devices.',
-            'Define playbooks once and execute consistently across regions and teams.'
-          ]
+          pain: ['Fragmented WAN & branch visibility', 'No unified SLA view', 'Alert fatigue without context'],
+          solutions: ['Unified observability', 'Business‑aware alerting', 'Automated playbooks']
         },
         isps: {
-          pain: [
-            'Thin margins eroded by SLA penalties and manual investigations.',
-            'Legacy OSS/BSS stacks that cannot keep up with subscriber growth.',
-            'Difficulty proving performance to enterprise and wholesale customers.'
-          ],
-          solutions: [
-            'Provider-grade ILL and access link visibility with per-customer SLAs.',
-            'Usage, downtime, and breach data wired directly into billing workflows.',
-            'Self-serve reports for enterprise customers that reduce support load.'
-          ]
+          pain: ['SLA penalties erode margins', 'Legacy OSS/BSS stacks', 'Hard to prove performance'],
+          solutions: ['Per‑customer SLA visibility', 'Billing‑wired usage data', 'Self‑serve customer reports']
         },
         healthcare: {
-          pain: [
-            'Clinical applications depending on unstable branch and Wi-Fi connectivity.',
-            'Strict compliance and audit requirements across hospitals and clinics.',
-            'Limited visibility into performance of third-party connectivity providers.'
-          ],
-          solutions: [
-            'End-to-end path visibility from core to ward with application context.',
-            'Granular audit trails for every change, alert, and access decision.',
-            'Clear views of provider performance for renegotiation and compliance.'
-          ]
+          pain: ['Clinical apps need stable Wi‑Fi', 'Strict compliance audits', 'Opaque provider performance'],
+          solutions: ['Core‑to‑ward path visibility', 'Granular audit trails', 'Provider performance views']
         },
         hospitality: {
-          pain: [
-            'Guest experience tied directly to Wi-Fi and property connectivity.',
-            'Many small sites with inconsistent equipment and providers.',
-            'Reactive incident handling driven by guest complaints and reviews.'
-          ],
-          solutions: [
-            'Standardised monitoring templates for properties regardless of vendor.',
-            'Health scores per property with clear actions for local teams.',
-            'SLA-aware incident flows prioritising VIP and event-heavy locations.'
-          ]
+          pain: ['Guest Wi‑Fi drives reviews', 'Inconsistent site equipment', 'Reactive incident handling'],
+          solutions: ['Vendor‑agnostic monitoring', 'Per‑property health scores', 'SLA‑aware incident flows']
         },
         multi_branch: {
-          pain: [
-            'Retail, logistics, and offices running on different network stacks.',
-            'No reliable way to see which branches are degrading before outages.',
-            'Difficult conversations with landlords, ISPs, and partners about faults.'
-          ],
-          solutions: [
-            'Unified branch health scoring across all vendors and media types.',
-            'Predictive alerts on branches likely to breach performance thresholds.',
-            'Evidence-backed reports to hold partners accountable and plan upgrades.'
-          ]
+          pain: ['Different stacks per branch', 'No early degradation alerts', 'Hard to hold partners accountable'],
+          solutions: ['Unified health scoring', 'Predictive threshold alerts', 'Evidence‑backed reports']
         }
       };
 
@@ -1243,17 +1324,13 @@
         const data = audienceData[key];
         if (!data || !audienceCopy) return;
         audienceCopy.innerHTML = `
-          <div>
-            <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 mb-2">Key pain points</p>
-            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300">
-              ${data.pain.map(p => `<li>${p}</li>`).join('')}
-            </ul>
+          <div class="space-y-2">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Challenges</p>
+            ${data.pain.map(p => `<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-400 text-sm">warning</span> ${p}</div>`).join('')}
           </div>
-          <div class="mt-4">
-            <p class="text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 mb-2">How Neurix helps</p>
-            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300">
-              ${data.solutions.map(s => `<li>${s}</li>`).join('')}
-            </ul>
+          <div class="space-y-2 mt-3">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-slate-400">How Neurix helps</p>
+            ${data.solutions.map(s => `<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-emerald-500 text-sm">check_circle</span> ${s}</div>`).join('')}
           </div>
         `;
       }
