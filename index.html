@@ -174,11 +174,13 @@
       background: linear-gradient(to right, rgba(230,61,81,0.12), rgba(248,250,252,0.95));
       border-color: rgba(230,61,81,0.2);
       box-shadow: 0 0 0 1px rgba(230,61,81,0.1);
+      color: #fff;
     }
     .dark .audience-tab-active {
       background: linear-gradient(to right, rgba(230,61,81,0.16), rgba(15,23,42,0.95));
       border-color: rgba(248,250,252,0.16);
       box-shadow: 0 0 0 1px rgba(248,250,252,0.12);
+      color: #fff;
     }
 
     .capability-dot {
@@ -409,9 +411,9 @@
 
         <div class="space-y-8">
           <div class="overflow-x-auto pb-2">
-            <div class="inline-flex min-w-full lg:min-w-0 items-stretch gap-2 rounded-2xl border border-white/10 bg-white/5 p-1.5 backdrop-blur-md">
+            <div class="flex items-stretch gap-2 rounded-2xl border border-white/10 bg-white/5 p-1.5 backdrop-blur-md">
               <button type="button" data-audience="enterprise_it"
-                      class="audience-tab flex-1 min-w-[120px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors audience-tab-active bg-white/10 text-white shadow-sm ring-1 ring-white/10">
+                      class="audience-tab flex-1 min-w-[120px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors audience-tab-active">
                 <div class="flex items-center justify-between gap-2">
                   <span>Enterprise IT</span>
                   <span class="material-icons text-[16px] text-primary">apartment</span>
@@ -448,7 +450,7 @@
             </div>
           </div>
 
-          <div class="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] gap-6 sm:gap-8 lg:gap-10">
+          <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-6 sm:gap-8 lg:gap-10">
             <div id="audience-copy" class="space-y-6 text-sm min-w-0">
               <div class="space-y-3">
                 <p class="text-[10px] uppercase font-mono tracking-widest text-rose-400">System Threats</p>
@@ -465,68 +467,170 @@
             </div>
 
             <div id="audience-visual"
-                 class="relative rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/80 p-4 sm:p-5 overflow-hidden">
-              <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
-                <span class="uppercase tracking-[0.18em]">Branch‑level control</span>
-                <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span>Sync with CMDB</span>
-                </span>
-              </div>
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 text-[10px] sm:text-[11px]">
-                <div class="col-span-2 space-y-2 min-w-0">
-                  <div class="flex items-center justify-between">
-                    <span class="text-slate-300">Branches</span>
-                    <span class="text-slate-400">sorted by risk</span>
-                  </div>
-                  <div class="space-y-1.5">
-                    <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-2 py-1.5">
-                      <span class="flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
-                        <span class="text-slate-100">Mumbai – HO</span>
-                      </span>
-                      <span class="text-rose-200">SLA at risk</span>
-                    </div>
-                    <div class="flex items-center justify-between rounded-lg bg-slate-900/80 border border-slate-700/80 px-2 py-1.5">
-                      <span class="flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                        <span class="text-slate-100">Bangalore – DC</span>
-                      </span>
-                      <span class="text-amber-200">Latency ↑</span>
-                    </div>
-                    <div class="flex items-center justify-between rounded-lg bg-slate-900/70 border border-slate-700/70 px-2 py-1.5">
-                      <span class="flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                        <span class="text-slate-100">Chennai – Branch 14</span>
-                      </span>
-                      <span class="text-emerald-200">Stable</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-span-2 sm:col-span-1 space-y-2 min-w-0">
-                  <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400">ILL health</div>
-                  <div class="h-16 rounded-lg bg-slate-900 border border-slate-700 flex flex-col justify-between p-2">
-                    <div class="flex items-center justify-between text-[10px]">
-                      <span class="text-slate-300">Current</span>
-                      <span class="text-emerald-300">Good</span>
-                    </div>
-                    <div class="h-1 rounded-full bg-slate-800 overflow-hidden">
-                      <div class="h-full w-[80%] bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-300"></div>
-                    </div>
-                    <p class="text-[9px] text-slate-400">Failover ready on 18 sites</p>
-                  </div>
-                  <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Actions</div>
-                  <button class="w-full rounded-lg bg-primary/90 hover:bg-primary px-2.5 py-1.5 text-[11px] font-semibold text-white flex items-center justify-center gap-1">
-                    <span class="material-icons text-xs">bolt</span>
-                    Run failover test
-                  </button>
-                </div>
-              </div>
+                 class="relative rounded-2xl border border-white/10 bg-slate-900/80 p-4 sm:p-5 overflow-hidden min-h-[280px]">
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- PLATFORM SECTION kept below... -->
+    <!-- The audience-visual content is now rendered dynamically by the JS below -->
+
+    <!-- NOTE: The closing tags above replace the original static visual. The script below handles rendering. -->
+
+<script>
+  // Industries Visual Data
+  const audienceVisuals = {
+    enterprise_it: `
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+        <span class="uppercase tracking-[0.18em]">Branch‑level SLA Control</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live CMDB Sync</span>
+      </div>
+      <div class="space-y-1.5 mb-4">
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span><span class="text-slate-100">Mumbai – HQ</span></span>
+          <span class="text-rose-300 text-[10px] font-mono">SLA at risk</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900/80 border border-slate-700/80 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span class="text-slate-100">Bangalore – DC</span></span>
+          <span class="text-amber-300 text-[10px] font-mono">Latency ↑</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900/70 border border-slate-700/70 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span class="text-slate-100">Chennai – Branch 14</span></span>
+          <span class="text-emerald-300 text-[10px] font-mono">Stable</span>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Uptime</p>
+          <p class="text-lg font-mono font-bold text-emerald-400">99.97%</p>
+        </div>
+        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Failover Ready</p>
+          <p class="text-lg font-mono font-bold text-primary">18 sites</p>
+        </div>
+      </div>`,
+
+    isps: `
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+        <span class="uppercase tracking-[0.18em]">CPE Fleet Monitor</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>SNMP Polling</span>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mb-4">
+        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Online</p>
+          <p class="text-xl font-mono font-bold text-emerald-400">8,412</p>
+        </div>
+        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Degraded</p>
+          <p class="text-xl font-mono font-bold text-amber-400">127</p>
+        </div>
+        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Offline</p>
+          <p class="text-xl font-mono font-bold text-rose-400">23</p>
+        </div>
+      </div>
+      <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 mb-3">
+        <div class="flex justify-between text-[10px] text-slate-400 mb-2"><span>Bandwidth Utilization</span><span class="text-white font-mono">67%</span></div>
+        <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[67%] bg-gradient-to-r from-primary to-accent-2 rounded-full"></div></div>
+      </div>
+      <div class="rounded-lg bg-slate-900 border border-slate-700 p-3">
+        <div class="flex justify-between text-[10px] text-slate-400 mb-2"><span>Packet Loss (Avg)</span><span class="text-emerald-400 font-mono">0.02%</span></div>
+        <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[2%] bg-emerald-400 rounded-full"></div></div>
+      </div>`,
+
+    healthcare: `
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+        <span class="uppercase tracking-[0.18em]">Critical Systems Dashboard</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[10px] font-mono"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>HIPAA Compliant</span>
+      </div>
+      <div class="space-y-1.5 mb-4">
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-emerald-500/20 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-emerald-400 text-sm">monitor_heart</span><span class="text-slate-100">EMR / HIS Systems</span></span>
+          <span class="text-emerald-300 text-[10px] font-mono">99.999% ↑</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-primary text-sm">medical_services</span><span class="text-slate-100">PACS Imaging Network</span></span>
+          <span class="text-primary text-[10px] font-mono">Stable</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-accent-2 text-sm">vaccines</span><span class="text-slate-100">Lab Integration Link</span></span>
+          <span class="text-accent-2 text-[10px] font-mono">Active</span>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Clinics Monitored</p>
+          <p class="text-lg font-mono font-bold text-white">52</p>
+        </div>
+        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">MTTR</p>
+          <p class="text-lg font-mono font-bold text-emerald-400">< 8 min</p>
+        </div>
+      </div>`,
+
+    hospitality: `
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+        <span class="uppercase tracking-[0.18em]">Guest WiFi Analytics</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-accent-2/20 text-accent-2 px-2 py-0.5 text-[10px] font-mono"><span class="w-1.5 h-1.5 rounded-full bg-accent-2 animate-pulse"></span>Live</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Connected Guests</p>
+          <p class="text-xl font-mono font-bold text-accent-2">1,847</p>
+        </div>
+        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Avg Session</p>
+          <p class="text-xl font-mono font-bold text-white">42 min</p>
+        </div>
+      </div>
+      <div class="space-y-1.5 mb-3">
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-400 text-sm">hotel</span><span class="text-slate-100">Grand Hyatt – Lobby</span></span>
+          <span class="text-emerald-300 text-[10px] font-mono">Optimal</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-400 text-sm">meeting_room</span><span class="text-slate-100">Conf Room B – Floor 3</span></span>
+          <span class="text-amber-300 text-[10px] font-mono">High Load</span>
+        </div>
+      </div>
+      <div class="rounded-lg bg-slate-900 border border-slate-700 p-3">
+        <div class="flex justify-between text-[10px] text-slate-400 mb-2"><span>AP Capacity</span><span class="text-white font-mono">72%</span></div>
+        <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[72%] bg-gradient-to-r from-accent-2 to-accent rounded-full"></div></div>
+      </div>`,
+
+    multi_branch: `
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+        <span class="uppercase tracking-[0.18em]">Franchise Health Scoring</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Auto-scoring</span>
+      </div>
+      <div class="space-y-1.5 mb-4">
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-emerald-400 text-sm">storefront</span><span class="text-slate-100">Zone A – 28 outlets</span></span>
+          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-800 overflow-hidden"><div class="h-full w-[92%] bg-emerald-400 rounded-full"></div></div><span class="text-emerald-300 text-[10px] font-mono">92</span></div>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-400 text-sm">storefront</span><span class="text-slate-100">Zone B – 15 outlets</span></span>
+          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-800 overflow-hidden"><div class="h-full w-[74%] bg-amber-400 rounded-full"></div></div><span class="text-amber-300 text-[10px] font-mono">74</span></div>
+        </div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-rose-400 text-sm">storefront</span><span class="text-slate-100">Zone C – 9 outlets</span></span>
+          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-800 overflow-hidden"><div class="h-full w-[58%] bg-rose-400 rounded-full"></div></div><span class="text-rose-300 text-[10px] font-mono">58</span></div>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Total Outlets</p>
+          <p class="text-lg font-mono font-bold text-white">52</p>
+        </div>
+        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
+          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Avg Score</p>
+          <p class="text-lg font-mono font-bold text-primary">78</p>
+        </div>
+      </div>`
+  };
+</script>
 
     <!-- PLATFORM (BENTO BOX) -->
     <section id="platform" class="bg-[#050505] relative border-t border-white/5 overflow-hidden">
@@ -1244,6 +1348,7 @@
 
       const audienceTabs = document.querySelectorAll('.audience-tab');
       const audienceCopy = document.getElementById('audience-copy');
+      const audienceVisual = document.getElementById('audience-visual');
 
       function renderAudience(key) {
         const data = audienceData[key];
@@ -1258,7 +1363,14 @@
             ${data.solutions.map(s => `<div class="flex items-center gap-2 text-slate-600 dark:text-slate-300"><span class="material-icons text-emerald-500 text-sm">check_circle</span> ${s}</div>`).join('')}
           </div>
         `;
+        // Also swap the visual panel
+        if (audienceVisual && audienceVisuals[key]) {
+          audienceVisual.innerHTML = audienceVisuals[key];
+        }
       }
+
+      // Render default tab visual on load
+      renderAudience('enterprise_it');
 
       audienceTabs.forEach(tab => {
         tab.addEventListener('click', () => {
