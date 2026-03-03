@@ -71,13 +71,9 @@
   </script>
 
   <script>
-    // Initialize theme: prefer stored value, else system preference, else light
+    // Initialize theme: prefer stored value, else system preference
     (function () {
-      // Force dark mode for the AI aesthetic
-      document.documentElement.classList.add('dark');
       try {
-        // The original logic for theme preference is overridden by the forced dark mode.
-        // Keeping the localStorage update for consistency if theme toggle is used later.
         const stored = localStorage.getItem('neurix-theme');
         const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const theme = stored || (systemPrefersDark ? 'dark' : 'light');
@@ -87,51 +83,84 @@
           document.documentElement.classList.remove('dark');
         }
       } catch (e) {
-        // fail safe to light
-        document.documentElement.classList.remove('dark');
+        // fail safe: detect system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
       }
     })();
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('neurix-theme', isDark ? 'dark' : 'light');
+      // Update toggle icon
+      const icon = document.getElementById('theme-toggle-icon');
+      if (icon) icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
   </script>
 
   <style>
-    html { overflow-x: hidden; background-color: #000; color: #fff; }
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; max-width: 100vw; background-color: #000; }
+    html { overflow-x: hidden; background-color: #f8f9fa; color: #1a1a2e; transition: background-color 0.3s, color 0.3s; }
+    html.dark { background-color: #000; color: #fff; }
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; max-width: 100vw; background-color: #f8f9fa; transition: background-color 0.3s; }
+    .dark body { background-color: #000; }
     section { overflow-x: hidden; }
     img, svg, video, canvas { max-width: 100%; height: auto; }
 
     /* Glassmorphism Utilities */
     .glass-panel {
-      background: rgba(24, 24, 27, 0.4);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+    }
+    .dark .glass-panel {
+      background: rgba(24, 24, 27, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     }
     
     .glass-button {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.01) 100%);
+      border: 1px solid rgba(0,0,0,0.1);
       backdrop-filter: blur(8px);
     }
+    .dark .glass-button {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
     .hero-mesh {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(230, 61, 81, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(230, 61, 81, 0.04) 0px, transparent 50%);
+      background-color: #f8f9fa;
+      position: relative;
+    }
+    .dark .hero-mesh {
       background-image: 
         radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 0%, rgba(217, 70, 239, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
         radial-gradient(at 0% 100%, rgba(0, 0, 0, 1) 0px, transparent 50%);
       background-color: #000;
-      position: relative;
     }
     
     .hero-mesh::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
       background-size: 50px 50px;
       mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 100%);
       pointer-events: none;
+    }
+    .dark .hero-mesh::after {
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     }
     .network-line:nth-child(1) { top: 12%; animation-delay: -3s; }
     .network-line:nth-child(2) { top: 38%; animation-delay: -8s; }
@@ -171,10 +200,10 @@
     }
 
     .audience-tab-active {
-      background: linear-gradient(to right, rgba(230,61,81,0.12), rgba(248,250,252,0.95));
+      background: linear-gradient(to right, rgba(230,61,81,0.08), rgba(255,255,255,0.95));
       border-color: rgba(230,61,81,0.2);
       box-shadow: 0 0 0 1px rgba(230,61,81,0.1);
-      color: #fff;
+      color: #1e293b;
     }
     .dark .audience-tab-active {
       background: linear-gradient(to right, rgba(230,61,81,0.16), rgba(15,23,42,0.95));
@@ -201,23 +230,26 @@
 <body class="bg-background-light text-neutral-dark dark:bg-background-dark dark:text-slate-50 font-display antialiased">
 
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/30 backdrop-blur-2xl">
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-white/5 bg-white/70 dark:bg-black/30 backdrop-blur-2xl transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5">
         <img src="assets/i9 logo-2_1753350504643.png" alt="i9 Networks" class="h-7 w-auto" />
-        <span class="text-lg font-semibold tracking-tight text-white">Neurix</span>
+        <span class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">Neurix</span>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-slate-400">
-        <a href="#platform" class="hover:text-primary transition-colors">Platform</a>
-        <a href="#industries" class="hover:text-primary transition-colors">Industries</a>
-        <a href="#architecture" class="hover:text-primary transition-colors">Architecture</a>
-        <a href="#resources" class="hover:text-primary transition-colors">Resources</a>
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400">
+        <a href="#platform" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Platform</a>
+        <a href="#industries" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Industries</a>
+        <a href="#architecture" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Architecture</a>
+        <a href="#resources" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Resources</a>
       </nav>
 
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all" title="Toggle theme">
+          <span id="theme-toggle-icon" class="material-icons text-[20px]">dark_mode</span>
+        </button>
         <a href="#demo" onclick="setTimeout(()=>document.getElementById('demo-email')?.focus(),400)"
-           class="inline-flex items-center gap-2 rounded-lg border border-rose-500/50 bg-rose-500/10 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-white shadow-[0_0_15px_rgba(244,63,94,0.3)] hover:bg-rose-500/20 hover:shadow-[0_0_20px_rgba(244,63,94,0.5)] transition-all">
+           class="inline-flex items-center gap-2 rounded-lg border border-rose-500/50 bg-rose-500/10 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-rose-600 dark:text-white shadow-[0_0_15px_rgba(244,63,94,0.15)] dark:shadow-[0_0_15px_rgba(244,63,94,0.3)] hover:bg-rose-500/20 hover:shadow-[0_0_20px_rgba(244,63,94,0.3)] dark:hover:shadow-[0_0_20px_rgba(244,63,94,0.5)] transition-all">
           <span>Request Demo</span>
           <span class="material-icons text-sm">arrow_forward</span>
         </a>
@@ -225,27 +257,36 @@
     </div>
   </header>
 
+  <script>
+    // Set correct icon on load
+    (function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const icon = document.getElementById('theme-toggle-icon');
+      if (icon) icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    })();
+  </script>
+
   <main class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
 
     <!-- HERO -->
-    <section class="hero-mesh relative text-slate-50 min-h-screen flex flex-col justify-center overflow-hidden">
+    <section class="hero-mesh relative text-slate-800 dark:text-slate-50 min-h-screen flex flex-col justify-center overflow-hidden">
       <!-- Ambient Glow Orbs -->
-      <div class="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-primary/20 rounded-full blur-[100px] mix-blend-screen animate-pulse-glow" style="animation-duration: 8s;"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] bg-accent/20 rounded-full blur-[120px] mix-blend-screen animate-pulse-glow" style="animation-duration: 12s; animation-delay: 2s;"></div>
+      <div class="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-rose-500/10 dark:bg-primary/20 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-pulse-glow" style="animation-duration: 8s;"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] bg-rose-500/5 dark:bg-accent/20 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-pulse-glow" style="animation-duration: 12s; animation-delay: 2s;"></div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
         <div class="space-y-8 lg:space-y-10 section-fade" data-animate>
-          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-3 py-1.5 text-xs font-mono font-medium uppercase tracking-widest text-slate-300">
-            <span class="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(0,240,255,0.8)]"></span>
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/5 backdrop-blur-md px-3 py-1.5 text-xs font-mono font-medium uppercase tracking-widest text-slate-500 dark:text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-rose-500 dark:bg-accent animate-pulse shadow-[0_0_10px_rgba(230,61,81,0.5)] dark:shadow-[0_0_10px_rgba(0,240,255,0.8)]"></span>
             Live Telemetry Active
           </div>
 
           <div class="space-y-6">
             <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter leading-[1.1]">
-              <span class="block text-white glow-text">Supercharge Your</span>
-              <span class="block bg-gradient-to-r from-accent via-white to-primary bg-clip-text text-transparent pb-2">Network Reality.</span>
+              <span class="block text-slate-900 dark:text-white glow-text">Supercharge Your</span>
+              <span class="block bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 dark:from-accent dark:via-white dark:to-primary bg-clip-text text-transparent pb-2">Network Reality.</span>
             </h1>
-            <p class="max-w-xl text-base sm:text-lg text-slate-400 font-light leading-relaxed">
+            <p class="max-w-xl text-base sm:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed">
               The AI-era command center for distributed enterprise networks. Monitor, automate, and orchestrate infrastructure at infinite scale.
             </p>
           </div>
@@ -259,17 +300,17 @@
               <span class="relative z-10 material-icons text-sm transition-transform group-hover:translate-x-1">bolt</span>
             </a>
             <a href="#platform"
-               class="glass-button inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors">
+               class="glass-button inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
               <span class="material-icons text-sm text-accent">terminal</span>
               <span>View Architecture</span>
             </a>
           </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-200 dark:border-white/10">
             <div class="space-y-1">
               <p class="text-[10px] uppercase tracking-widest text-slate-500 font-mono">Sites Managed</p>
               <div class="flex items-center gap-2">
-                <p class="text-2xl font-mono font-bold text-white">12,480+</p>
+                <p class="text-2xl font-mono font-bold text-slate-900 dark:text-white">12,480+</p>
               </div>
             </div>
             <div class="space-y-1">
@@ -297,7 +338,7 @@
           
           <div class="glass-panel relative rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 border-white/10 transform rotate-y-[-2deg] rotate-x-[2deg] transition-transform hover:rotate-0 duration-700">
             <!-- UI Top Bar -->
-            <div class="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/5">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200/50 dark:border-white/5 bg-slate-50/50 dark:bg-white/5">
               <div class="flex items-center gap-3">
                 <div class="flex gap-1.5">
                   <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
@@ -325,7 +366,7 @@
                 <div class="relative z-10 flex justify-between items-start">
                   <div>
                     <h3 class="text-xs font-mono text-slate-400 uppercase tracking-widest">Global Topology</h3>
-                    <p class="text-2xl font-mono font-bold text-white mt-1">482 <span class="text-xs font-sans text-slate-500 font-normal">Active Clusters</span></p>
+                    <p class="text-2xl font-mono font-bold text-slate-900 dark:text-white mt-1">482 <span class="text-xs font-sans text-slate-500 font-normal">Active Clusters</span></p>
                   </div>
                   <span class="material-icons text-white/20">public</span>
                 </div>
@@ -367,9 +408,9 @@
     </section>
 
     <!-- WHO IT'S FOR -->
-    <section id="industries" class="bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <section id="industries" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade text-white" data-animate>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade text-slate-900 dark:text-white" data-animate>
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 mb-12">
           <div class="max-w-xl space-y-4">
             <p class="text-xs uppercase tracking-[0.24em] text-primary">Who Neurix is for</p>
@@ -382,9 +423,9 @@
           </div>
           <div class="max-w-xl space-y-4">
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-              Built for <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Complex Topologies.</span>
+              Built for <span class="bg-gradient-to-r from-rose-600 to-rose-500 dark:from-primary dark:to-accent bg-clip-text text-transparent">Complex Topologies.</span>
             </h2>
-            <p class="text-base sm:text-lg text-slate-400 font-light leading-relaxed">
+            <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed">
               Whether you manage 50 clinics or a nationwide ISP network, Neurix scales instantly.
             </p>
           </div>
@@ -411,37 +452,37 @@
 
         <div class="space-y-8">
           <div class="overflow-x-auto pb-2">
-            <div class="flex items-stretch gap-2 rounded-2xl border border-white/10 bg-white/5 p-1.5 backdrop-blur-md">
+            <div class="flex items-stretch gap-2 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 p-1.5 backdrop-blur-md">
               <button type="button" data-audience="enterprise_it"
-                      class="audience-tab flex-1 min-w-[120px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors audience-tab-active">
+                      class="audience-tab flex-1 min-w-[120px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5 transition-colors audience-tab-active">
                 <div class="flex items-center justify-between gap-2">
                   <span>Enterprise IT</span>
                   <span class="material-icons text-[16px] text-primary">apartment</span>
                 </div>
               </button>
               <button type="button" data-audience="isps"
-                      class="audience-tab flex-1 min-w-[120px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors">
+                      class="audience-tab flex-1 min-w-[120px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5 transition-colors">
                 <div class="flex items-center justify-between gap-2">
                   <span>ISPs &amp; LCOs</span>
                   <span class="material-icons text-[16px]">router</span>
                 </div>
               </button>
               <button type="button" data-audience="healthcare"
-                      class="audience-tab flex-1 min-w-[140px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors">
+                      class="audience-tab flex-1 min-w-[140px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5 transition-colors">
                 <div class="flex items-center justify-between gap-2">
                   <span>Healthcare Networks</span>
                   <span class="material-icons text-[16px]">monitor_heart</span>
                 </div>
               </button>
               <button type="button" data-audience="hospitality"
-                      class="audience-tab flex-1 min-w-[140px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors">
+                      class="audience-tab flex-1 min-w-[140px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5 transition-colors">
                 <div class="flex items-center justify-between gap-2">
                   <span>Hospitality Groups</span>
                   <span class="material-icons text-[16px]">hotel</span>
                 </div>
               </button>
               <button type="button" data-audience="multi_branch"
-                      class="audience-tab flex-1 min-w-[160px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors">
+                      class="audience-tab flex-1 min-w-[160px] rounded-xl border border-transparent px-4 py-2.5 text-left text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5 transition-colors">
                 <div class="flex items-center justify-between gap-2">
                   <span>Multi‑Branch</span>
                   <span class="material-icons text-[16px]">storefront</span>
@@ -454,20 +495,20 @@
             <div id="audience-copy" class="space-y-6 text-sm min-w-0">
               <div class="space-y-3">
                 <p class="text-[10px] uppercase font-mono tracking-widest text-rose-400">System Threats</p>
-                <div class="flex items-center gap-3 text-slate-300"><span class="material-icons text-rose-500 text-sm">warning</span> Fragmented WAN & branch visibility</div>
-                <div class="flex items-center gap-3 text-slate-300"><span class="material-icons text-rose-500 text-sm">warning</span> No unified SLA view</div>
-                <div class="flex items-center gap-3 text-slate-300"><span class="material-icons text-rose-500 text-sm">warning</span> Alert fatigue without context</div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-500 text-sm">warning</span> Fragmented WAN & branch visibility</div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-500 text-sm">warning</span> No unified SLA view</div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><span class="material-icons text-rose-500 text-sm">warning</span> Alert fatigue without context</div>
               </div>
-              <div class="space-y-3 pt-4 border-t border-white/5">
-                <p class="text-[10px] uppercase font-mono tracking-widest text-emerald-400">Neurix Resolutions</p>
-                <div class="flex items-center gap-3 text-slate-300"><span class="material-icons text-primary text-sm">check_circle</span> Unified observability</div>
-                <div class="flex items-center gap-3 text-slate-300"><span class="material-icons text-primary text-sm">check_circle</span> Business‑aware alerting</div>
-                <div class="flex items-center gap-3 text-slate-300"><span class="material-icons text-primary text-sm">check_circle</span> Automated playbooks</div>
+              <div class="space-y-3 pt-4 border-t border-slate-200 dark:border-white/5">
+                <p class="text-[10px] uppercase font-mono tracking-widest text-emerald-500 dark:text-emerald-400">Neurix Resolutions</p>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><span class="material-icons text-primary text-sm">check_circle</span> Unified observability</div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><span class="material-icons text-primary text-sm">check_circle</span> Business‑aware alerting</div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><span class="material-icons text-primary text-sm">check_circle</span> Automated playbooks</div>
               </div>
             </div>
 
             <div id="audience-visual"
-                 class="relative rounded-2xl border border-white/10 bg-slate-900/80 p-4 sm:p-5 overflow-hidden min-h-[280px]">
+                 class="relative rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/80 p-4 sm:p-5 overflow-hidden min-h-[280px]">
             </div>
           </div>
         </div>
@@ -483,149 +524,149 @@
   // Industries Visual Data
   const audienceVisuals = {
     enterprise_it: `
-      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-500 dark:text-slate-400">
         <span class="uppercase tracking-[0.18em]">Branch‑level SLA Control</span>
-        <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live CMDB Sync</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Live CMDB Sync</span>
       </div>
       <div class="space-y-1.5 mb-4">
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span><span class="text-slate-100">Mumbai – HQ</span></span>
-          <span class="text-rose-300 text-[10px] font-mono">SLA at risk</span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span><span class="text-slate-800 dark:text-slate-100">Mumbai – HQ</span></span>
+          <span class="text-rose-500 dark:text-rose-300 text-[10px] font-mono">SLA at risk</span>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900/80 border border-slate-700/80 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span class="text-slate-100">Bangalore – DC</span></span>
-          <span class="text-amber-300 text-[10px] font-mono">Latency ↑</span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span class="text-slate-800 dark:text-slate-100">Bangalore – DC</span></span>
+          <span class="text-amber-500 dark:text-amber-300 text-[10px] font-mono">Latency ↑</span>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900/70 border border-slate-700/70 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span class="text-slate-100">Chennai – Branch 14</span></span>
-          <span class="text-emerald-300 text-[10px] font-mono">Stable</span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700/70 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span class="text-slate-800 dark:text-slate-100">Chennai – Branch 14</span></span>
+          <span class="text-emerald-500 dark:text-emerald-300 text-[10px] font-mono">Stable</span>
         </div>
       </div>
       <div class="flex gap-3">
-        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Uptime</p>
-          <p class="text-lg font-mono font-bold text-emerald-400">99.97%</p>
+        <div class="flex-1 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Uptime</p>
+          <p class="text-lg font-mono font-bold text-emerald-500 dark:text-emerald-400">99.97%</p>
         </div>
-        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Failover Ready</p>
+        <div class="flex-1 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Failover Ready</p>
           <p class="text-lg font-mono font-bold text-primary">18 sites</p>
         </div>
       </div>`,
 
     isps: `
-      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-500 dark:text-slate-400">
         <span class="uppercase tracking-[0.18em]">CPE Fleet Monitor</span>
-        <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>SNMP Polling</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>SNMP Polling</span>
       </div>
       <div class="grid grid-cols-3 gap-2 mb-4">
-        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Online</p>
-          <p class="text-xl font-mono font-bold text-emerald-400">8,412</p>
+        <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Online</p>
+          <p class="text-xl font-mono font-bold text-emerald-500 dark:text-emerald-400">8,412</p>
         </div>
-        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Degraded</p>
-          <p class="text-xl font-mono font-bold text-amber-400">127</p>
+        <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Degraded</p>
+          <p class="text-xl font-mono font-bold text-amber-500 dark:text-amber-400">127</p>
         </div>
-        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Offline</p>
-          <p class="text-xl font-mono font-bold text-rose-400">23</p>
+        <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Offline</p>
+          <p class="text-xl font-mono font-bold text-rose-500 dark:text-rose-400">23</p>
         </div>
       </div>
-      <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 mb-3">
-        <div class="flex justify-between text-[10px] text-slate-400 mb-2"><span>Bandwidth Utilization</span><span class="text-white font-mono">67%</span></div>
-        <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[67%] bg-gradient-to-r from-primary to-accent-2 rounded-full"></div></div>
+      <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3 mb-3">
+        <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 mb-2"><span>Bandwidth Utilization</span><span class="text-slate-900 dark:text-white font-mono">67%</span></div>
+        <div class="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[67%] bg-gradient-to-r from-primary to-accent-2 rounded-full"></div></div>
       </div>
-      <div class="rounded-lg bg-slate-900 border border-slate-700 p-3">
-        <div class="flex justify-between text-[10px] text-slate-400 mb-2"><span>Packet Loss (Avg)</span><span class="text-emerald-400 font-mono">0.02%</span></div>
-        <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[2%] bg-emerald-400 rounded-full"></div></div>
+      <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+        <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 mb-2"><span>Packet Loss (Avg)</span><span class="text-emerald-500 dark:text-emerald-400 font-mono">0.02%</span></div>
+        <div class="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[2%] bg-emerald-400 rounded-full"></div></div>
       </div>`,
 
     healthcare: `
-      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-500 dark:text-slate-400">
         <span class="uppercase tracking-[0.18em]">Critical Systems Dashboard</span>
-        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[10px] font-mono"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>HIPAA Compliant</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 text-[10px] font-mono"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>HIPAA Compliant</span>
       </div>
       <div class="space-y-1.5 mb-4">
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-emerald-500/20 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-emerald-400 text-sm">monitor_heart</span><span class="text-slate-100">EMR / HIS Systems</span></span>
-          <span class="text-emerald-300 text-[10px] font-mono">99.999% ↑</span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-emerald-200 dark:border-emerald-500/20 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-emerald-500 dark:text-emerald-400 text-sm">monitor_heart</span><span class="text-slate-800 dark:text-slate-100">EMR / HIS Systems</span></span>
+          <span class="text-emerald-500 dark:text-emerald-300 text-[10px] font-mono">99.999% ↑</span>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-primary text-sm">medical_services</span><span class="text-slate-100">PACS Imaging Network</span></span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-primary text-sm">medical_services</span><span class="text-slate-800 dark:text-slate-100">PACS Imaging Network</span></span>
           <span class="text-primary text-[10px] font-mono">Stable</span>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-accent-2 text-sm">vaccines</span><span class="text-slate-100">Lab Integration Link</span></span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-accent-2 text-sm">vaccines</span><span class="text-slate-800 dark:text-slate-100">Lab Integration Link</span></span>
           <span class="text-accent-2 text-[10px] font-mono">Active</span>
         </div>
       </div>
       <div class="flex gap-3">
-        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Clinics Monitored</p>
-          <p class="text-lg font-mono font-bold text-white">52</p>
+        <div class="flex-1 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Clinics Monitored</p>
+          <p class="text-lg font-mono font-bold text-slate-900 dark:text-white">52</p>
         </div>
-        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">MTTR</p>
-          <p class="text-lg font-mono font-bold text-emerald-400">< 8 min</p>
+        <div class="flex-1 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">MTTR</p>
+          <p class="text-lg font-mono font-bold text-emerald-500 dark:text-emerald-400">< 8 min</p>
         </div>
       </div>`,
 
     hospitality: `
-      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-500 dark:text-slate-400">
         <span class="uppercase tracking-[0.18em]">Guest WiFi Analytics</span>
-        <span class="inline-flex items-center gap-1 rounded-full bg-accent-2/20 text-accent-2 px-2 py-0.5 text-[10px] font-mono"><span class="w-1.5 h-1.5 rounded-full bg-accent-2 animate-pulse"></span>Live</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-cyan-100 dark:bg-accent-2/20 text-cyan-600 dark:text-accent-2 px-2 py-0.5 text-[10px] font-mono"><span class="w-1.5 h-1.5 rounded-full bg-accent-2 animate-pulse"></span>Live</span>
       </div>
       <div class="grid grid-cols-2 gap-2 mb-4">
-        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Connected Guests</p>
-          <p class="text-xl font-mono font-bold text-accent-2">1,847</p>
+        <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Connected Guests</p>
+          <p class="text-xl font-mono font-bold text-cyan-600 dark:text-accent-2">1,847</p>
         </div>
-        <div class="rounded-lg bg-slate-900 border border-slate-700 p-3 text-center">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Avg Session</p>
-          <p class="text-xl font-mono font-bold text-white">42 min</p>
+        <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3 text-center">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Avg Session</p>
+          <p class="text-xl font-mono font-bold text-slate-900 dark:text-white">42 min</p>
         </div>
       </div>
       <div class="space-y-1.5 mb-3">
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-400 text-sm">hotel</span><span class="text-slate-100">Grand Hyatt – Lobby</span></span>
-          <span class="text-emerald-300 text-[10px] font-mono">Optimal</span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-500 dark:text-amber-400 text-sm">hotel</span><span class="text-slate-800 dark:text-slate-100">Grand Hyatt – Lobby</span></span>
+          <span class="text-emerald-500 dark:text-emerald-300 text-[10px] font-mono">Optimal</span>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-400 text-sm">meeting_room</span><span class="text-slate-100">Conf Room B – Floor 3</span></span>
-          <span class="text-amber-300 text-[10px] font-mono">High Load</span>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-500 dark:text-amber-400 text-sm">meeting_room</span><span class="text-slate-800 dark:text-slate-100">Conf Room B – Floor 3</span></span>
+          <span class="text-amber-500 dark:text-amber-300 text-[10px] font-mono">High Load</span>
         </div>
       </div>
-      <div class="rounded-lg bg-slate-900 border border-slate-700 p-3">
-        <div class="flex justify-between text-[10px] text-slate-400 mb-2"><span>AP Capacity</span><span class="text-white font-mono">72%</span></div>
-        <div class="h-2 bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[72%] bg-gradient-to-r from-accent-2 to-accent rounded-full"></div></div>
+      <div class="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+        <div class="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 mb-2"><span>AP Capacity</span><span class="text-slate-900 dark:text-white font-mono">72%</span></div>
+        <div class="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden"><div class="h-full w-[72%] bg-gradient-to-r from-accent-2 to-accent rounded-full"></div></div>
       </div>`,
 
     multi_branch: `
-      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-400">
+      <div class="flex items-center justify-between mb-3 text-[11px] text-slate-500 dark:text-slate-400">
         <span class="uppercase tracking-[0.18em]">Franchise Health Scoring</span>
-        <span class="inline-flex items-center gap-1 rounded-full bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Auto-scoring</span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Auto-scoring</span>
       </div>
       <div class="space-y-1.5 mb-4">
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-emerald-400 text-sm">storefront</span><span class="text-slate-100">Zone A – 28 outlets</span></span>
-          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-800 overflow-hidden"><div class="h-full w-[92%] bg-emerald-400 rounded-full"></div></div><span class="text-emerald-300 text-[10px] font-mono">92</span></div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2.5">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-emerald-500 dark:text-emerald-400 text-sm">storefront</span><span class="text-slate-800 dark:text-slate-100">Zone A – 28 outlets</span></span>
+          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden"><div class="h-full w-[92%] bg-emerald-400 rounded-full"></div></div><span class="text-emerald-500 dark:text-emerald-300 text-[10px] font-mono">92</span></div>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-400 text-sm">storefront</span><span class="text-slate-100">Zone B – 15 outlets</span></span>
-          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-800 overflow-hidden"><div class="h-full w-[74%] bg-amber-400 rounded-full"></div></div><span class="text-amber-300 text-[10px] font-mono">74</span></div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2.5">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-amber-500 dark:text-amber-400 text-sm">storefront</span><span class="text-slate-800 dark:text-slate-100">Zone B – 15 outlets</span></span>
+          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden"><div class="h-full w-[74%] bg-amber-400 rounded-full"></div></div><span class="text-amber-500 dark:text-amber-300 text-[10px] font-mono">74</span></div>
         </div>
-        <div class="flex items-center justify-between rounded-lg bg-slate-900 border border-slate-700 px-3 py-2.5">
-          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-rose-400 text-sm">storefront</span><span class="text-slate-100">Zone C – 9 outlets</span></span>
-          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-800 overflow-hidden"><div class="h-full w-[58%] bg-rose-400 rounded-full"></div></div><span class="text-rose-300 text-[10px] font-mono">58</span></div>
+        <div class="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2.5">
+          <span class="flex items-center gap-2 text-[11px]"><span class="material-icons text-rose-500 dark:text-rose-400 text-sm">storefront</span><span class="text-slate-800 dark:text-slate-100">Zone C – 9 outlets</span></span>
+          <div class="flex items-center gap-2"><div class="w-16 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden"><div class="h-full w-[58%] bg-rose-400 rounded-full"></div></div><span class="text-rose-500 dark:text-rose-300 text-[10px] font-mono">58</span></div>
         </div>
       </div>
       <div class="flex gap-3">
-        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Total Outlets</p>
-          <p class="text-lg font-mono font-bold text-white">52</p>
+        <div class="flex-1 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Total Outlets</p>
+          <p class="text-lg font-mono font-bold text-slate-900 dark:text-white">52</p>
         </div>
-        <div class="flex-1 rounded-lg bg-slate-900 border border-slate-700 p-3">
-          <p class="text-[9px] text-slate-500 uppercase tracking-widest mb-1">Avg Score</p>
+        <div class="flex-1 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-3">
+          <p class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Avg Score</p>
           <p class="text-lg font-mono font-bold text-primary">78</p>
         </div>
       </div>`
@@ -633,21 +674,21 @@
 </script>
 
     <!-- PLATFORM (BENTO BOX) -->
-    <section id="platform" class="bg-[#050505] relative border-t border-white/5 overflow-hidden">
+    <section id="platform" class="bg-gray-50 dark:bg-[#050505] relative border-t border-slate-200 dark:border-white/5 overflow-hidden">
       <!-- Ambient Background -->
       <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjwvc3ZnPg==')] opacity-30"></div>
       <div class="absolute right-0 top-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade" data-animate>
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-6">
-          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-mono font-medium text-slate-300">
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/5 px-3 py-1 text-xs font-mono font-medium text-slate-500 dark:text-slate-300">
             <span class="material-icons text-xs text-primary">hub</span>
             NEURIX_PLATFORM_MODULES
           </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-            Everything you need to run your network — <span class="bg-gradient-to-r from-accent via-white to-primary bg-clip-text text-transparent">in one place.</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+            Everything you need to run your network — <span class="bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 dark:from-accent dark:via-white dark:to-primary bg-clip-text text-transparent">in one place.</span>
           </h2>
-          <p class="text-base sm:text-lg text-slate-400 font-light leading-relaxed">
+          <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed">
             Six integrated, AI-ready modules that handle hotspot management, security, logging, device configuration, incident response, and business operations.
           </p>
         </div>
@@ -660,22 +701,22 @@
             <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 blur-[80px] rounded-full group-hover:bg-accent/30 transition-colors"></div>
             
             <div class="relative z-10 flex items-start justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md">
+              <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center backdrop-blur-md">
                 <span class="material-icons text-accent text-2xl">wifi</span>
               </div>
               <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20">MODULE_01</span>
             </div>
             <div class="relative z-10 mt-8">
-              <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Hotspot Engine</h3>
-              <p class="text-slate-400 font-light leading-relaxed max-w-md">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Hotspot Engine</h3>
+              <p class="text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-md">
                 Captive portal, deep bandwidth control, VIP guest workflows & automated voucher auth pipelines.
               </p>
             </div>
-            <div class="relative z-10 mt-6 pt-6 border-t border-white/10 flex items-end justify-between">
+            <div class="relative z-10 mt-6 pt-6 border-t border-slate-200 dark:border-white/10 flex items-end justify-between">
               <div>
                 <p class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-1">Live Auth Requests</p>
                 <div class="flex items-center gap-3">
-                  <p class="text-3xl font-mono font-bold text-white">2.8K<span class="text-sm text-slate-500 font-normal">/sec</span></p>
+                  <p class="text-3xl font-mono font-bold text-slate-900 dark:text-white">2.8K<span class="text-sm text-slate-500 font-normal">/sec</span></p>
                   <span class="text-accent text-xs font-mono bg-accent/10 px-1.5 py-0.5 rounded">↑12%</span>
                 </div>
               </div>
@@ -696,7 +737,7 @@
               <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
                 <span class="material-icons text-emerald-400 text-xl">shield</span>
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 tracking-tight">Threat Shield</h3>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Threat Shield</h3>
               <p class="text-sm text-slate-400 font-light leading-relaxed">
                 Adaptive DDoS protection & threat intelligence firewall.
               </p>
@@ -726,7 +767,7 @@
                   <div class="w-1.5 h-full bg-primary shadow-[0_0_8px_#3b82f6] rounded-full animate-pulse"></div>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Deep Logs</h3>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Deep Logs</h3>
               <p class="text-slate-400 font-light leading-relaxed">
                 Ingest NetFlow, IPFIX, and device syslogs natively. AI-assisted traffic visibility and bandwidth accounting built in.
               </p>
@@ -766,7 +807,7 @@
                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
                 <span class="material-icons text-accent-2 text-xl">settings_remote</span>
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 tracking-tight">ACS Core</h3>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">ACS Core</h3>
               <p class="text-sm text-slate-400 font-light leading-relaxed">
                 TR-069 / TR-369 protocol support for zero-touch provisioning.
               </p>
@@ -785,7 +826,7 @@
                 </div>
                 <span class="text-amber-400 font-mono text-xs bg-amber-400/10 px-2 py-0.5 rounded">12 OPEN</span>
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 tracking-tight">Incident Ops</h3>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Incident Ops</h3>
               <p class="text-sm text-slate-400 font-light leading-relaxed">
                 Automated escalation pipelines & SLA tracking.
               </p>
@@ -799,32 +840,37 @@
           </div>
 
           <!-- BSS / Monetization (Spans 2 cols) -->
-          <div class="glass-panel !bg-slate-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-white/30 transition-all duration-500 md:col-span-2 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+          <div class="glass-panel !bg-violet-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-violet-300 dark:hover:border-violet-500/40 transition-all duration-500 md:col-span-2 relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-56 h-56 bg-violet-400/15 dark:bg-violet-500/20 blur-[80px] rounded-full group-hover:bg-violet-400/25 dark:group-hover:bg-violet-500/30 transition-colors"></div>
+            <div class="absolute top-0 left-1/3 w-40 h-40 bg-indigo-400/10 dark:bg-indigo-500/10 blur-[60px] rounded-full pointer-events-none"></div>
             
             <div class="relative z-10 flex flex-col sm:flex-row sm:items-start justify-between gap-6">
               <div class="max-w-xs">
-                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                  <span class="material-icons text-slate-300 text-xl">storefront</span>
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-500/15 dark:to-indigo-500/15 border border-violet-200 dark:border-violet-500/25 flex items-center justify-center mb-6">
+                  <span class="material-icons text-violet-600 dark:text-violet-400 text-xl">storefront</span>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Business Logic (BSS)</h3>
-                <p class="text-sm text-slate-400 font-light leading-relaxed">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Business Logic (BSS)</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                   Unified commercial management. Sync inventory, coordinate resellers, and construct complex product plans programmatically.
                 </p>
+                <div class="mt-4 pt-4 border-t border-violet-200/50 dark:border-violet-500/15">
+                  <p class="font-mono text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-1">Monthly Revenue</p>
+                  <p class="text-2xl font-mono font-bold bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">₹4.2Cr<span class="text-xs text-emerald-500 font-mono ml-2 bg-emerald-500/10 px-1.5 py-0.5 rounded">↑18%</span></p>
+                </div>
               </div>
               
               <div class="grid grid-cols-1 gap-3 sm:min-w-[200px]">
-                <div class="bg-black/40 border border-white/5 rounded-xl p-3 flex items-center justify-between">
-                  <span class="text-xs text-slate-400">Products</span>
-                  <span class="font-mono text-sm text-white">248</span>
+                <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200/60 dark:border-violet-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-violet-400">
+                  <span class="text-xs text-violet-600/70 dark:text-violet-300/70">Products</span>
+                  <span class="font-mono text-sm font-semibold text-violet-700 dark:text-violet-300">248</span>
                 </div>
-                <div class="bg-black/40 border border-white/5 rounded-xl p-3 flex items-center justify-between">
-                  <span class="text-xs text-slate-400">Inventory</span>
-                  <span class="font-mono text-sm text-white">12.4K</span>
+                <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200/60 dark:border-indigo-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-indigo-400">
+                  <span class="text-xs text-indigo-600/70 dark:text-indigo-300/70">Inventory</span>
+                  <span class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">12.4K</span>
                 </div>
-                <div class="bg-black/40 border border-white/5 rounded-xl p-3 flex items-center justify-between">
-                  <span class="text-xs text-slate-400">Resellers</span>
-                  <span class="font-mono text-sm text-white">86</span>
+                <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200/60 dark:border-fuchsia-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-fuchsia-400">
+                  <span class="text-xs text-fuchsia-600/70 dark:text-fuchsia-300/70">Resellers</span>
+                  <span class="font-mono text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">86</span>
                 </div>
               </div>
             </div>
@@ -835,7 +881,7 @@
     </section>
 
     <!-- PROBLEM / RISK -->
-    <section class="bg-[#000] border-t border-white/5 relative overflow-hidden">
+    <section class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 section-fade"
            data-animate>
         <div class="space-y-6">
@@ -843,21 +889,21 @@
             <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
             SYSTEM_RISK_ANALYSIS
           </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
             When connectivity fails, <span class="bg-gradient-to-r from-rose-400 to-amber-500 bg-clip-text text-transparent">business stops.</span>
           </h2>
-          <p class="text-base sm:text-lg text-slate-400 font-light leading-relaxed max-w-xl">
+          <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-xl">
             ILL degradation costs revenue and trust. Neurix is built for mission-critical environments where downtime isn't an option.
           </p>
           <dl class="grid sm:grid-cols-2 gap-4 text-sm mt-8">
             <div class="glass-panel rounded-2xl p-4 flex items-center gap-4 border-l-2 border-l-rose-500">
               <div class="text-center shrink-0 w-16">
-                <p class="text-xl font-mono font-bold text-white leading-none">₹12L</p>
+                <p class="text-xl font-mono font-bold text-slate-900 dark:text-white leading-none">₹12L</p>
                 <p class="text-[9px] font-mono text-rose-400 mt-1 uppercase">Avg Pen</p>
               </div>
               <div>
-                <dt class="text-white font-semibold mb-0.5">Downtime penalties</dt>
-                <dd class="text-[11px] text-slate-400">SLA breaches & revenue loss</dd>
+                <dt class="text-slate-900 dark:text-white font-semibold mb-0.5">Downtime penalties</dt>
+                <dd class="text-[11px] text-slate-500 dark:text-slate-400">SLA breaches & revenue loss</dd>
               </div>
             </div>
             <div class="glass-panel rounded-2xl p-4 flex items-center gap-4 border-l-2 border-l-amber-500">
@@ -931,7 +977,7 @@
     </section>
 
     <!-- ARCHITECTURE -->
-    <section id="architecture" class="bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <section id="architecture" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <!-- Glow -->
       <div class="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-accent-2/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
 
@@ -939,24 +985,24 @@
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 mb-16">
           <div class="max-w-xl space-y-4">
             <p class="text-xs font-mono uppercase tracking-widest text-accent-2">Architecture &amp; Protocol Core</p>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Engineered for <span class="bg-gradient-to-r from-accent-2 to-primary bg-clip-text text-transparent">Scale.</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+              Engineered for <span class="bg-gradient-to-r from-rose-600 to-rose-400 dark:from-accent-2 dark:to-primary bg-clip-text text-transparent">Scale.</span>
             </h2>
-            <p class="text-sm sm:text-base text-slate-400 font-light leading-relaxed">
+            <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
               Event‑driven, multi‑tenant execution. Cloud & on‑prem ready. Built like critical infrastructure, not just a dashboard.
             </p>
             <div class="flex flex-wrap gap-3 pt-4">
               <div class="glass-button flex items-center gap-2 rounded-lg px-3 py-1.5">
                 <span class="material-icons text-primary text-sm">layers</span>
-                <span class="text-xs font-semibold text-white">3‑Plane Arch</span>
+                <span class="text-xs font-semibold text-slate-700 dark:text-white">3‑Plane Arch</span>
               </div>
               <div class="glass-button flex items-center gap-2 rounded-lg px-3 py-1.5">
                 <span class="material-icons text-emerald-400 text-sm">security</span>
-                <span class="text-xs font-semibold text-white">RBAC + Audit</span>
+                <span class="text-xs font-semibold text-slate-700 dark:text-white">RBAC + Audit</span>
               </div>
               <div class="glass-button flex items-center gap-2 rounded-lg px-3 py-1.5">
                 <span class="material-icons text-accent text-sm">cloud_done</span>
-                <span class="text-xs font-semibold text-white">Cloud/On-Prem</span>
+                <span class="text-xs font-semibold text-slate-700 dark:text-white">Cloud/On-Prem</span>
               </div>
             </div>
           </div>
@@ -1027,15 +1073,15 @@
     </section>
 
     <!-- SEO BLOCK -->
-    <section id="resources" class="bg-[#000] border-t border-white/5 relative overflow-hidden">
+    <section id="resources" class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <!-- Glow -->
       <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 lg:gap-16 section-fade"
            data-animate>
         <div class="space-y-8">
-          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
-            ILL Monitoring Platform for distributed, <span class="bg-gradient-to-r from-primary to-accent-2 bg-clip-text text-transparent">always‑on networks.</span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+            ILL Monitoring Platform for distributed, <span class="bg-gradient-to-r from-rose-600 to-rose-400 dark:from-primary dark:to-accent-2 bg-clip-text text-transparent">always‑on networks.</span>
           </h2>
           <div class="grid sm:grid-cols-2 gap-4 text-sm mt-8">
             <div class="glass-panel p-4 rounded-2xl flex items-start gap-4">
@@ -1043,7 +1089,7 @@
                 <span class="material-icons text-primary">monitoring</span>
               </div>
               <div>
-                <p class="font-bold text-white text-sm mb-1">Deep ILL Monitoring</p>
+                <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">Deep ILL Monitoring</p>
                 <!-- Line Chart SVG -->
                 <svg viewBox="0 0 80 20" class="w-16 h-4 opacity-70">
                   <polyline fill="none" stroke="#e63d51" stroke-width="1.5" stroke-linecap="round" points="0,16 12,12 24,14 36,8 48,10 60,6 72,4 80,3"/>
@@ -1056,7 +1102,7 @@
                 <span class="material-icons text-accent-2">apartment</span>
               </div>
               <div>
-                <p class="font-bold text-white text-sm mb-1">Enterprise Monitoring</p>
+                <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">Enterprise Monitoring</p>
                 <div class="flex gap-1">
                   <span class="font-mono px-1.5 py-0.5 text-[9px] rounded bg-white/5 text-slate-400 border border-white/10">WAN</span>
                   <span class="font-mono px-1.5 py-0.5 text-[9px] rounded bg-white/5 text-slate-400 border border-white/10">LAN</span>
@@ -1070,7 +1116,7 @@
                 <span class="material-icons text-emerald-400">router</span>
               </div>
               <div class="w-full">
-                <p class="font-bold text-white text-sm mb-1">ISP Management</p>
+                <p class="font-bold text-slate-900 dark:text-white text-sm mb-1">ISP Management</p>
                 <div class="h-1.5 w-full rounded-full bg-white/10 mt-2 overflow-hidden">
                   <div class="h-full w-[88%] rounded-full bg-gradient-to-r from-emerald-500 to-accent-2 shadow-[0_0_8px_#10b981]"></div>
                 </div>
@@ -1094,40 +1140,40 @@
         
 
         <!-- LEAD CAPTURE FORM -->
-        <div id="demo" class="glass-panel p-6 sm:p-8 rounded-[2rem] w-full max-w-md mx-auto lg:ml-auto border-white/10 shadow-2xl shadow-primary/10 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[50px] pointer-events-none mix-blend-screen"></div>
+        <div id="demo" class="glass-panel p-6 sm:p-8 rounded-[2rem] w-full max-w-md mx-auto lg:ml-auto border-slate-200 dark:border-white/10 shadow-2xl shadow-primary/5 dark:shadow-primary/10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 dark:bg-primary/20 rounded-full blur-[50px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
           
           <div class="relative z-10">
-            <h3 class="text-xl font-bold text-white mb-6 font-mono tracking-tight text-center sm:text-left flex items-center gap-2"><span class="material-icons text-primary text-xl">terminal</span>INITIATE_DEMO<span class="text-primary animate-pulse relative -top-1">_</span></h3>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 font-mono tracking-tight text-center sm:text-left flex items-center gap-2"><span class="material-icons text-primary text-xl">terminal</span>INITIATE_DEMO<span class="text-primary animate-pulse relative -top-1">_</span></h3>
             
             <form action="#" method="POST" class="space-y-5">
               <div>
-                <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-400 mb-2">Work email</label>
+                <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Work email</label>
                 <input type="email" name="email" id="demo-email" required placeholder="name@company.com"
-                       class="block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
+                       class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
               </div>
               
               <div class="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-400 mb-2">Phone</label>
+                  <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Phone</label>
                   <input type="tel" name="phone" placeholder="Optional"
-                         class="block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
+                         class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
                 </div>
                 <div>
-                  <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-400 mb-2">Time window</label>
+                  <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Time window</label>
                   <select name="time_window"
-                          class="block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
-                    <option value="" class="bg-slate-900">Select...</option>
-                    <option class="bg-slate-900">Morning (IST)</option>
-                    <option class="bg-slate-900">Afternoon (IST)</option>
+                          class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-500 dark:text-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                    <option value="" class="bg-white dark:bg-slate-900">Select...</option>
+                    <option class="bg-white dark:bg-slate-900">Morning (IST)</option>
+                    <option class="bg-white dark:bg-slate-900">Afternoon (IST)</option>
                   </select>
                 </div>
               </div>
               
               <div>
-                <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-400 mb-2">Specific Requirements</label>
+                <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Specific Requirements</label>
                 <textarea name="notes" rows="3"
-                          class="block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
+                          class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
                           placeholder="e.g. SLA reporting..."></textarea>
               </div>
               
@@ -1147,11 +1193,11 @@
     </section>
 
     <!-- FAQ -->
-    <section class="bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <section class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade" data-animate>
         <div class="text-center mb-16">
           <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-primary">KNOWLEDGE_BASE</p>
-          <h2 class="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
             Architecture &amp; Deployment.
           </h2>
         </div>
@@ -1159,10 +1205,10 @@
         <div class="space-y-4">
           <div class="faq-item glass-panel rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
             <button type="button" class="w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-              <span class="font-bold text-white tracking-tight text-lg">What is deep ILL monitoring?</span>
+              <span class="font-bold text-slate-900 dark:text-white tracking-tight text-lg">What is deep ILL monitoring?</span>
               <div class="faq-icon material-icons text-slate-400 transition-transform bg-white/5 rounded-full p-1">add</div>
             </button>
-            <div class="px-6 pb-6 text-sm text-slate-400 font-light leading-relaxed hidden border-t border-white/5 pt-4 mt-2">
+            <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed hidden border-t border-slate-200 dark:border-white/5 pt-4 mt-2">
               Continuous visibility into the health and performance of your leased lines — latency,
               packet loss, jitter, utilisation, flaps, and failovers — with context about which branches, applications,
               and SLAs are impacted when something drifts from baseline metrics.
@@ -1171,10 +1217,10 @@
 
           <div class="faq-item glass-panel rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
             <button type="button" class="w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-              <span class="font-bold text-white tracking-tight text-lg">How does Neurix handle automated SLAs?</span>
+              <span class="font-bold text-slate-900 dark:text-white tracking-tight text-lg">How does Neurix handle automated SLAs?</span>
               <div class="faq-icon material-icons text-slate-400 transition-transform bg-white/5 rounded-full p-1">add</div>
             </button>
-            <div class="px-6 pb-6 text-sm text-slate-400 font-light leading-relaxed hidden border-t border-white/5 pt-4 mt-2">
+            <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed hidden border-t border-slate-200 dark:border-white/5 pt-4 mt-2">
               Neurix maps measured network performance to contractual SLAs per customer, region, or tenant. It tracks
               uptime windows, exclusions, and maintenance periods computationally, then generates cryptographically verifiable reports that finance, legal,
               and customers can all trust.
@@ -1183,10 +1229,10 @@
 
           <div class="faq-item glass-panel rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
             <button type="button" class="w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-              <span class="font-bold text-white tracking-tight text-lg">Can Neurix manage complex ISP core routing?</span>
+              <span class="font-bold text-slate-900 dark:text-white tracking-tight text-lg">Can Neurix manage complex ISP core routing?</span>
               <div class="faq-icon material-icons text-slate-400 transition-transform bg-white/5 rounded-full p-1">add</div>
             </button>
-            <div class="px-6 pb-6 text-sm text-slate-400 font-light leading-relaxed hidden border-t border-white/5 pt-4 mt-2">
+            <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed hidden border-t border-slate-200 dark:border-white/5 pt-4 mt-2">
               Yes. Neurix is designed for core networks with dozens to thousands of autonomous systems. It normalises telemetry from
               diverse vendors across the BGP plane, aggregates health by peering link, and enforces consistent traffic engineering policies.
             </div>
@@ -1194,7 +1240,7 @@
 
           <div class="faq-item glass-panel rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
             <button type="button" class="w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-              <span class="font-bold text-white tracking-tight text-lg">Is it available via Docker/Kubernetes on‑prem?</span>
+              <span class="font-bold text-slate-900 dark:text-white tracking-tight text-lg">Is it available via Docker/Kubernetes on‑prem?</span>
               <div class="faq-icon material-icons text-slate-400 transition-transform bg-white/5 rounded-full p-1">add</div>
             </button>
             <div class="px-6 pb-6 text-sm text-slate-400 font-light leading-relaxed hidden border-t border-white/5 pt-4 mt-2">
@@ -1207,9 +1253,9 @@
     </section>
 
     <!-- FINAL STATS TICKER -->
-    <section class="bg-[#000] border-t border-white/5 py-12 overflow-hidden relative">
-       <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-       <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+    <section class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 py-12 overflow-hidden relative">
+       <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+       <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
        <div class="flex items-center whitespace-nowrap animate-blob opacity-60">
           <div class="flex items-center gap-12 px-6">
              <span class="font-mono text-xl text-white font-bold tracking-widest">12,480+<span class="text-sm text-slate-500 ml-2 font-normal">SITES</span></span>
@@ -1234,44 +1280,44 @@
 
   </main>
 
-  <footer class="bg-[#000] pt-20 pb-10">
+  <footer class="bg-gray-50 dark:bg-[#000] pt-20 pb-10">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-12 mb-16 border-t border-white/5 pt-16">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-12 mb-16 border-t border-slate-200 dark:border-white/5 pt-16">
         <div class="col-span-2 lg:col-span-2">
           <div class="flex items-center gap-2.5 mb-6">
             <img src="assets/i9 logo-2_1753350504643.png" alt="Neurix" class="h-7 w-auto" />
-            <span class="text-2xl font-bold text-white tracking-tight">Neurix</span>
+            <span class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Neurix</span>
           </div>
           <p class="text-slate-500 font-light text-sm max-w-xs leading-relaxed">Mission‑critical observability. Built for zero-downtime environments.</p>
         </div>
         
         <div>
-          <h4 class="font-mono font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Platform</h4>
+          <h4 class="font-mono font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-widest text-[10px]">Platform</h4>
           <ul class="space-y-4">
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">System Architecture</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">Network Polling</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">Data Ingestion</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">BSS Billing Engine</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#platform">System Architecture</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#platform">Network Polling</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#platform">Data Ingestion</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#platform">BSS Billing Engine</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="font-mono font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Resources</h4>
+          <h4 class="font-mono font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-widest text-[10px]">Resources</h4>
           <ul class="space-y-4">
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#resources">Developer Docs</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#resources">GraphQL API</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Live System Status</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Changelog</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#resources">Developer Docs</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#resources">GraphQL API</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#">Live System Status</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#">Changelog</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-mono font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Company</h4>
+          <h4 class="font-mono font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-widest text-[10px]">Company</h4>
           <ul class="space-y-4">
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">About Us</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Careers</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Contact</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Blog</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#">About Us</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#">Contact</a></li>
+            <li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary transition-colors" href="#">Blog</a></li>
           </ul>
         </div>
       </div>
