@@ -214,7 +214,7 @@
       </nav>
 
       <div class="flex items-center gap-4">
-        <a href="#demo"
+        <a href="#demo" onclick="setTimeout(()=>document.getElementById('demo-email')?.focus(),400)"
            class="inline-flex items-center gap-2 rounded-lg border border-rose-500/50 bg-rose-500/10 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-white shadow-[0_0_15px_rgba(244,63,94,0.3)] hover:bg-rose-500/20 hover:shadow-[0_0_20px_rgba(244,63,94,0.5)] transition-all">
           <span>Request Demo</span>
           <span class="material-icons text-sm">arrow_forward</span>
@@ -249,7 +249,7 @@
           </div>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#demo"
+            <a href="#demo" onclick="setTimeout(()=>document.getElementById('demo-email')?.focus(),400)"
                class="relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold tracking-wide text-white transition-all hover:scale-105 group overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent-2 opacity-90 group-hover:opacity-100 transition-opacity"></div>
               <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] mix-blend-overlay"></div>
@@ -990,7 +990,7 @@
         
 
         <!-- LEAD CAPTURE FORM -->
-        <div class="glass-panel p-6 sm:p-8 rounded-[2rem] w-full max-w-md mx-auto lg:ml-auto border-white/10 shadow-2xl shadow-primary/10 relative overflow-hidden">
+        <div id="demo" class="glass-panel p-6 sm:p-8 rounded-[2rem] w-full max-w-md mx-auto lg:ml-auto border-white/10 shadow-2xl shadow-primary/10 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[50px] pointer-events-none mix-blend-screen"></div>
           
           <div class="relative z-10">
@@ -999,7 +999,7 @@
             <form action="#" method="POST" class="space-y-5">
               <div>
                 <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-400 mb-2">Work email</label>
-                <input type="email" name="email" required placeholder="name@company.com"
+                <input type="email" name="email" id="demo-email" required placeholder="name@company.com"
                        class="block w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
               </div>
               
@@ -1132,12 +1132,10 @@
 
   <footer class="bg-[#000] pt-20 pb-10">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-t border-white/5 pt-16">
-        <div class="col-span-2 lg:col-span-1">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-12 mb-16 border-t border-white/5 pt-16">
+        <div class="col-span-2 lg:col-span-2">
           <div class="flex items-center gap-2.5 mb-6">
-            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-              <span class="text-white text-lg font-bold">N</span>
-            </div>
+            <img src="assets/i9 logo-2_1753350504643.png" alt="Neurix" class="h-7 w-auto" />
             <span class="text-2xl font-bold text-white tracking-tight">Neurix</span>
           </div>
           <p class="text-slate-500 font-light text-sm max-w-xs leading-relaxed">Mission‑critical observability. Built for zero-downtime environments.</p>
@@ -1146,25 +1144,34 @@
         <div>
           <h4 class="font-mono font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Platform</h4>
           <ul class="space-y-4">
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">System Architecture</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Network Polling</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Data Ingestion</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">BSS Billing Engine</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">System Architecture</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">Network Polling</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">Data Ingestion</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#platform">BSS Billing Engine</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="font-mono font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Resources</h4>
           <ul class="space-y-4">
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Developer Docs</a></li>
-            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">GraphQL API</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#resources">Developer Docs</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#resources">GraphQL API</a></li>
             <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Live System Status</a></li>
             <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Changelog</a></li>
           </ul>
         </div>
+
+        <div>
+          <h4 class="font-mono font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Company</h4>
+          <ul class="space-y-4">
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">About Us</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Careers</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Contact</a></li>
+            <li><a class="text-sm text-slate-400 hover:text-primary transition-colors" href="#">Blog</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </footer>
   </footer>
 
   <!-- INTERACTIONS -->
