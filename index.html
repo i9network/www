@@ -578,12 +578,12 @@
             <div class="absolute -right-16 -bottom-16 w-56 h-56 bg-violet-400/15 dark:bg-violet-500/20 blur-[80px] rounded-full group-hover:bg-violet-400/25 dark:group-hover:bg-violet-500/30 transition-colors"></div>
             <div class="absolute top-0 left-1/3 w-40 h-40 bg-indigo-400/10 dark:bg-indigo-500/10 blur-[60px] rounded-full pointer-events-none"></div>
             
-            <div class="relative z-10 flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               <div class="max-w-xs">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-500/15 dark:to-indigo-500/15 border border-violet-200 dark:border-violet-500/25 flex items-center justify-center mb-6">
                   <span class="material-icons text-violet-600 dark:text-violet-400 text-xl">storefront</span>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Business Support (CRM)</h3>
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Business Support</h3>
                 <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                   Unified commercial management. Sync inventory, coordinate resellers, and construct complex product plans programmatically.
                 </p>
@@ -593,18 +593,36 @@
                 </div>
               </div>
               
-              <div class="grid grid-cols-1 gap-3 sm:min-w-[200px]">
-                <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200/60 dark:border-violet-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-violet-400">
-                  <span class="text-xs text-violet-600/70 dark:text-violet-300/70">Products</span>
-                  <span class="font-mono text-sm font-semibold text-violet-700 dark:text-violet-300">248</span>
+              <div id="bss-container" class="relative sm:min-w-[220px]">
+                <!-- Group 1 -->
+                <div class="bss-group grid grid-cols-1 gap-3 transition-all duration-500 opacity-100">
+                  <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200/60 dark:border-violet-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-violet-400">
+                    <span class="text-xs text-violet-600/70 dark:text-violet-300/70">Products & Plans</span>
+                    <span class="font-mono text-sm font-semibold text-violet-700 dark:text-violet-300">248</span>
+                  </div>
+                  <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200/60 dark:border-indigo-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-indigo-400">
+                    <span class="text-xs text-indigo-600/70 dark:text-indigo-300/70">Asset Management</span>
+                    <span class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">12.4K</span>
+                  </div>
+                  <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200/60 dark:border-fuchsia-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-fuchsia-400">
+                    <span class="text-xs text-fuchsia-600/70 dark:text-fuchsia-300/70">Resellers</span>
+                    <span class="font-mono text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">86</span>
+                  </div>
                 </div>
-                <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200/60 dark:border-indigo-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-indigo-400">
-                  <span class="text-xs text-indigo-600/70 dark:text-indigo-300/70">Inventory</span>
-                  <span class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">12.4K</span>
-                </div>
-                <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200/60 dark:border-fuchsia-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-fuchsia-400">
-                  <span class="text-xs text-fuchsia-600/70 dark:text-fuchsia-300/70">Resellers</span>
-                  <span class="font-mono text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">86</span>
+                <!-- Group 2 -->
+                <div class="bss-group absolute inset-0 grid grid-cols-1 gap-3 content-center transition-all duration-500 opacity-0">
+                  <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200/60 dark:border-amber-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-amber-400">
+                    <span class="text-xs text-amber-600/70 dark:text-amber-300/70">Billing & Charging</span>
+                    <span class="font-mono text-sm font-semibold text-amber-700 dark:text-amber-300">₹1.8Cr</span>
+                  </div>
+                  <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200/60 dark:border-emerald-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-emerald-400">
+                    <span class="text-xs text-emerald-600/70 dark:text-emerald-300/70">Subscriber Lifecycle</span>
+                    <span class="font-mono text-sm font-semibold text-emerald-700 dark:text-emerald-300">54K</span>
+                  </div>
+                  <div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200/60 dark:border-rose-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-rose-400">
+                    <span class="text-xs text-rose-600/70 dark:text-rose-300/70">CRM</span>
+                    <span class="font-mono text-sm font-semibold text-rose-700 dark:text-rose-300">3.2K</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1436,6 +1454,22 @@
           if (content) content.classList.toggle('hidden', expanded);
         });
       });
+
+      // BSS card fade toggle
+      const bssContainer = document.getElementById('bss-container');
+      if (bssContainer) {
+        const groups = bssContainer.querySelectorAll('.bss-group');
+        let active = 0;
+        let paused = false;
+        bssContainer.addEventListener('mouseenter', () => paused = true);
+        bssContainer.addEventListener('mouseleave', () => paused = false);
+        setInterval(() => {
+          if (paused) return;
+          groups[active].classList.replace('opacity-100', 'opacity-0');
+          active = (active + 1) % groups.length;
+          groups[active].classList.replace('opacity-0', 'opacity-100');
+        }, 3000);
+      }
     });
   </script>
 </body>
