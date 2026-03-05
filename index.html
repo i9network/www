@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Neurix by i9 Networks — monitor, manage, automate, and optimize large-scale ILL and distributed network environments from a single intelligent platform." />
   <title>Neurix – Enterprise Network Command Center</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -233,7 +234,8 @@
   <header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-white/5 bg-white/70 dark:bg-black/30 backdrop-blur-2xl transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5">
-        <img src="assets/i9 logo-2_1753350504643.png" alt="i9 Networks" class="h-7 w-auto" />
+        <img src="assets/logo-light.png" alt="i9 Networks" class="h-7 w-auto block dark:hidden" />
+        <img src="assets/logo-dark.png" alt="i9 Networks" class="h-7 w-auto hidden dark:block" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400">
@@ -574,7 +576,7 @@
           </div>
 
           <!-- BSS / Monetization (Spans 2 cols) -->
-          <div class="glass-panel !bg-violet-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-violet-300 dark:hover:border-violet-500/40 transition-all duration-500 md:col-span-2 relative overflow-hidden">
+          <div class="glass-panel !bg-violet-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-violet-300 dark:hover:border-violet-500/40 transition-all duration-500 md:col-span-2 relative">
             <div class="absolute -right-16 -bottom-16 w-56 h-56 bg-violet-400/15 dark:bg-violet-500/20 blur-[80px] rounded-full group-hover:bg-violet-400/25 dark:group-hover:bg-violet-500/30 transition-colors"></div>
             <div class="absolute top-0 left-1/3 w-40 h-40 bg-indigo-400/10 dark:bg-indigo-500/10 blur-[60px] rounded-full pointer-events-none"></div>
             
@@ -587,10 +589,6 @@
                 <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                   Unified commercial management. Sync inventory, coordinate resellers, and construct complex product plans programmatically.
                 </p>
-                <div class="mt-4 pt-4 border-t border-violet-200/50 dark:border-violet-500/15">
-                  <p class="font-mono text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-1">Monthly Revenue</p>
-                  <p class="text-2xl font-mono font-bold bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">₹4.2Cr<span class="text-xs text-emerald-500 font-mono ml-2 bg-emerald-500/10 px-1.5 py-0.5 rounded">↑18%</span></p>
-                </div>
               </div>
               
               <div id="bss-container" class="relative sm:min-w-[220px]">
@@ -626,7 +624,10 @@
                 </div>
               </div>
             </div>
-          </div>
+            <div class="relative z-10 mt-6 pt-4 border-t border-violet-200/50 dark:border-violet-500/15">
+              <p class="font-mono text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-1">Monthly Revenue</p>
+              <p class="text-2xl font-mono font-bold bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">₹4.2Cr<span class="text-xs text-emerald-500 font-mono ml-2 bg-emerald-500/10 px-1.5 py-0.5 rounded">↑18%</span></p>
+            </div>
 
         </div>
       </div>
@@ -1302,7 +1303,8 @@
       <div class="grid grid-cols-2 lg:grid-cols-5 gap-12 mb-16 border-t border-slate-200 dark:border-white/5 pt-16">
         <div class="col-span-2 lg:col-span-2">
           <div class="flex items-center gap-2.5 mb-6">
-            <img src="assets/i9 logo-2_1753350504643.png" alt="i9 Networks" class="h-7 w-auto" />
+            <img src="assets/logo-light.png" alt="i9 Networks" class="h-7 w-auto block dark:hidden" />
+            <img src="assets/logo-dark.png" alt="i9 Networks" class="h-7 w-auto hidden dark:block" />
             <span class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">i9 Network</span>
           </div>
           <p class="text-slate-500 font-light text-sm max-w-xs leading-relaxed">Mission‑critical observability. Built for zero-downtime environments.</p>
