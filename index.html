@@ -247,7 +247,7 @@
         <button onclick="toggleTheme()" class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all" title="Toggle theme">
           <span id="theme-toggle-icon" class="material-icons text-[20px]">dark_mode</span>
         </button>
-        <a href="#demo" onclick="setTimeout(()=>document.getElementById('demo-email')?.focus(),400)"
+        <a href="#demo"
            class="inline-flex items-center gap-2 rounded-lg border border-rose-500/50 bg-rose-500/10 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-rose-600 dark:text-white shadow-[0_0_15px_rgba(244,63,94,0.15)] dark:shadow-[0_0_15px_rgba(244,63,94,0.3)] hover:bg-rose-500/20 hover:shadow-[0_0_20px_rgba(244,63,94,0.3)] dark:hover:shadow-[0_0_20px_rgba(244,63,94,0.5)] transition-all">
           <span>Request Demo</span>
           <span class="material-icons text-sm">arrow_forward</span>
@@ -291,7 +291,7 @@
           </div>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#demo" onclick="setTimeout(()=>document.getElementById('demo-email')?.focus(),400)"
+            <a href="#demo"
                class="relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold tracking-wide text-white transition-all hover:scale-105 group overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent-2 opacity-90 group-hover:opacity-100 transition-opacity"></div>
               <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] mix-blend-overlay"></div>
@@ -407,6 +407,213 @@
     </section>
 
     <!-- WHO IT'S FOR -->
+    <!-- PLATFORM (BENTO BOX) -->
+    <section id="platform" class="bg-gray-50 dark:bg-[#050505] relative border-t border-slate-200 dark:border-white/5 overflow-hidden">
+      <!-- Ambient Background -->
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjwvc3ZnPg==')] opacity-30"></div>
+      <div class="absolute right-0 top-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade" data-animate>
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-6">
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/5 px-3 py-1 text-xs font-mono font-medium text-slate-500 dark:text-slate-300">
+            <span class="material-icons text-xs text-primary">hub</span>
+            NEURIX_PLATFORM_MODULES
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+            Everything you need to run your network — <span class="bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 dark:from-accent dark:via-white dark:to-primary bg-clip-text text-transparent">in one place.</span>
+          </h2>
+          <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+            Neurix integrates, AI-ready modules that handle hotspot management, security, logging, device configuration, incident response, and business operations.
+          </p>
+        </div>
+
+        <!-- BENTO GRID LAYOUT -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[280px] md:auto-rows-[320px] gap-4 lg:gap-6">
+
+          <!-- Hotspot (Spans 2 cols) -->
+          <div class="glass-panel !bg-accent/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-accent/40 transition-all duration-500 md:col-span-2 relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 blur-[80px] rounded-full group-hover:bg-accent/30 transition-colors"></div>
+            
+            <div class="relative z-10 flex items-start justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center backdrop-blur-md">
+                <span class="material-icons text-accent text-2xl">wifi</span>
+              </div>
+              <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20">MODULE_01</span>
+            </div>
+            <div class="relative z-10 mt-8">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Hotspot Engine</h3>
+              <p class="text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-md">
+                Captive portal, deep bandwidth control, VIP guest workflows & automated voucher auth pipelines.
+              </p>
+            </div>
+            <div class="relative z-10 mt-6 pt-6 border-t border-slate-200 dark:border-white/10 flex items-end justify-between">
+              <div>
+                <p class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-1">Live Auth Requests</p>
+                <div class="flex items-center gap-3">
+                  <p class="text-3xl font-mono font-bold text-slate-900 dark:text-white">2.8K<span class="text-sm text-slate-500 font-normal">/sec</span></p>
+                  <span class="text-accent text-xs font-mono bg-accent/10 px-1.5 py-0.5 rounded">↑12%</span>
+                </div>
+              </div>
+              
+              <!-- Abstract Wave Visual -->
+              <svg viewBox="0 0 100 30" class="w-32 h-10 opacity-70">
+                <path d="M0,20 Q10,5 20,20 T40,20 T60,20 T80,20 T100,20" fill="none" class="stroke-accent" stroke-width="2" />
+                <path d="M0,25 Q15,10 30,25 T60,25 T90,25 T100,25" fill="none" class="stroke-slate-300 dark:stroke-white/20" stroke-width="1" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Shield (Standard Box) -->
+          <div class="glass-panel !bg-emerald-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-500/40 transition-all duration-500 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[50px] rounded-full group-hover:bg-emerald-500/20 transition-colors"></div>
+            
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                <span class="material-icons text-emerald-400 text-xl">shield</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Threat Shield</h3>
+              <p class="text-sm text-slate-400 font-light leading-relaxed">
+                Adaptive DDoS protection & threat intelligence firewall.
+              </p>
+            </div>
+            <div class="relative z-10 mt-6 pt-4 border-t border-white/5">
+               <p class="font-mono text-[10px] text-slate-500 uppercase mb-2">Defense Matrix</p>
+               <div class="flex items-center gap-1 h-3">
+                  <div class="h-full bg-emerald-500 shadow-[0_0_10px_#10b981] rounded-full" style="width:82%"></div>
+                  <div class="h-full bg-amber-500/50 rounded-full" style="width:12%"></div>
+                  <div class="h-full bg-rose-500/50 rounded-full" style="width:6%"></div>
+               </div>
+            </div>
+          </div>
+
+          <!-- Logs (Standard Box now) -->
+          <div class="glass-panel !bg-primary/5 group rounded-3xl p-6 sm:p-8 flex flex-col hover:border-primary/40 transition-all duration-500 relative overflow-hidden">
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
+            
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  <span class="material-icons text-primary text-xl">analytics</span>
+                </div>
+                <div class="flex gap-1 h-3 mt-1">
+                  <div class="w-1.5 h-full bg-primary/20 rounded-full"></div>
+                  <div class="w-1.5 h-full bg-primary/60 rounded-full"></div>
+                  <div class="w-1.5 h-full bg-primary shadow-[0_0_8px_#3b82f6] rounded-full animate-pulse"></div>
+                </div>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Deep Logs</h3>
+              <p class="text-slate-400 font-light leading-relaxed">
+                Ingest NetFlow, IPFIX, and device syslogs natively. AI-assisted traffic visibility and bandwidth accounting built in.
+              </p>
+            </div>
+            
+            <div class="relative z-10 flex-1 flex flex-col justify-end mt-8">
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                    <span>Syslog Ingest</span>
+                    <span class="text-slate-900 dark:text-white">8.4M/s</span>
+                  </div>
+                  <div class="h-1 bg-slate-200 dark:bg-white/5 rounded-full overflow-hidden">
+                    <div class="h-full bg-primary w-[85%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                    <span>NetFlow Processing</span>
+                    <span class="text-slate-900 dark:text-white">12.1GB/s</span>
+                  </div>
+                  <div class="h-1 bg-slate-200 dark:bg-white/5 rounded-full overflow-hidden">
+                    <div class="h-full bg-accent w-[60%]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- ACS (Standard Box) -->
+          <div class="glass-panel !bg-accent-2/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-accent-2/40 transition-all duration-500 relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-accent-2/10 blur-[60px] rounded-full group-hover:bg-accent-2/20 transition-colors"></div>
+            
+            <div class="relative z-10">
+               <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center mb-6">
+                <span class="material-icons text-accent-2 text-xl">settings_remote</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">ACS Core</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                TR-069 / TR-369 protocol support for zero-touch provisioning.
+              </p>
+            </div>
+            <div class="relative z-10 mt-6 pt-4 border-t border-slate-200 dark:border-white/5">
+              <p class="font-mono text-2xl font-bold text-slate-900 dark:text-white">6,120 <span class="text-xs font-sans font-light text-slate-500">CPEs</span></p>
+            </div>
+          </div>
+
+          <!-- Incident Management (Standard Box) -->
+          <div class="glass-panel !bg-amber-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-amber-500/40 transition-all duration-500">
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                  <span class="material-icons text-amber-400 text-xl">confirmation_number</span>
+                </div>
+                <span class="text-amber-400 font-mono text-xs bg-amber-400/10 px-2 py-0.5 rounded">12 OPEN</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Incident Ops</h3>
+              <p class="text-sm text-slate-400 font-light leading-relaxed">
+                Automated escalation pipelines & SLA tracking.
+              </p>
+            </div>
+            <div class="relative z-10 mt-6 pt-4 border-t border-slate-200 dark:border-white/5 flex justify-between items-end">
+               <div>
+                <p class="font-mono text-[10px] text-slate-500 uppercase">Avg MTTR</p>
+                <p class="text-xl inline-block mt-1 bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent font-bold">1.8h</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BSS / Monetization (Spans 2 cols) -->
+          <div class="glass-panel !bg-violet-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-violet-300 dark:hover:border-violet-500/40 transition-all duration-500 md:col-span-2 relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-56 h-56 bg-violet-400/15 dark:bg-violet-500/20 blur-[80px] rounded-full group-hover:bg-violet-400/25 dark:group-hover:bg-violet-500/30 transition-colors"></div>
+            <div class="absolute top-0 left-1/3 w-40 h-40 bg-indigo-400/10 dark:bg-indigo-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+            
+            <div class="relative z-10 flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+              <div class="max-w-xs">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-500/15 dark:to-indigo-500/15 border border-violet-200 dark:border-violet-500/25 flex items-center justify-center mb-6">
+                  <span class="material-icons text-violet-600 dark:text-violet-400 text-xl">storefront</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Business Support (CRM)</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  Unified commercial management. Sync inventory, coordinate resellers, and construct complex product plans programmatically.
+                </p>
+                <div class="mt-4 pt-4 border-t border-violet-200/50 dark:border-violet-500/15">
+                  <p class="font-mono text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-1">Monthly Revenue</p>
+                  <p class="text-2xl font-mono font-bold bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">₹4.2Cr<span class="text-xs text-emerald-500 font-mono ml-2 bg-emerald-500/10 px-1.5 py-0.5 rounded">↑18%</span></p>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-3 sm:min-w-[200px]">
+                <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200/60 dark:border-violet-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-violet-400">
+                  <span class="text-xs text-violet-600/70 dark:text-violet-300/70">Products</span>
+                  <span class="font-mono text-sm font-semibold text-violet-700 dark:text-violet-300">248</span>
+                </div>
+                <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200/60 dark:border-indigo-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-indigo-400">
+                  <span class="text-xs text-indigo-600/70 dark:text-indigo-300/70">Inventory</span>
+                  <span class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">12.4K</span>
+                </div>
+                <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200/60 dark:border-fuchsia-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-fuchsia-400">
+                  <span class="text-xs text-fuchsia-600/70 dark:text-fuchsia-300/70">Resellers</span>
+                  <span class="font-mono text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">86</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="industries" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade text-slate-900 dark:text-white" data-animate>
@@ -672,213 +879,6 @@
   };
 </script>
 
-    <!-- PLATFORM (BENTO BOX) -->
-    <section id="platform" class="bg-gray-50 dark:bg-[#050505] relative border-t border-slate-200 dark:border-white/5 overflow-hidden">
-      <!-- Ambient Background -->
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjwvc3ZnPg==')] opacity-30"></div>
-      <div class="absolute right-0 top-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade" data-animate>
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-6">
-          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100/80 dark:bg-white/5 px-3 py-1 text-xs font-mono font-medium text-slate-500 dark:text-slate-300">
-            <span class="material-icons text-xs text-primary">hub</span>
-            NEURIX_PLATFORM_MODULES
-          </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
-            Everything you need to run your network — <span class="bg-gradient-to-r from-rose-600 via-rose-500 to-rose-400 dark:from-accent dark:via-white dark:to-primary bg-clip-text text-transparent">in one place.</span>
-          </h2>
-          <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-            Six integrated, AI-ready modules that handle hotspot management, security, logging, device configuration, incident response, and business operations.
-          </p>
-        </div>
-
-        <!-- BENTO GRID LAYOUT -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[280px] md:auto-rows-[320px] gap-4 lg:gap-6">
-
-          <!-- Hotspot (Spans 2 cols) -->
-          <div class="glass-panel !bg-accent/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-accent/40 transition-all duration-500 md:col-span-2 relative overflow-hidden">
-            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 blur-[80px] rounded-full group-hover:bg-accent/30 transition-colors"></div>
-            
-            <div class="relative z-10 flex items-start justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center backdrop-blur-md">
-                <span class="material-icons text-accent text-2xl">wifi</span>
-              </div>
-              <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20">MODULE_01</span>
-            </div>
-            <div class="relative z-10 mt-8">
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Hotspot Engine</h3>
-              <p class="text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-md">
-                Captive portal, deep bandwidth control, VIP guest workflows & automated voucher auth pipelines.
-              </p>
-            </div>
-            <div class="relative z-10 mt-6 pt-6 border-t border-slate-200 dark:border-white/10 flex items-end justify-between">
-              <div>
-                <p class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-1">Live Auth Requests</p>
-                <div class="flex items-center gap-3">
-                  <p class="text-3xl font-mono font-bold text-slate-900 dark:text-white">2.8K<span class="text-sm text-slate-500 font-normal">/sec</span></p>
-                  <span class="text-accent text-xs font-mono bg-accent/10 px-1.5 py-0.5 rounded">↑12%</span>
-                </div>
-              </div>
-              
-              <!-- Abstract Wave Visual -->
-              <svg viewBox="0 0 100 30" class="w-32 h-10 opacity-70">
-                <path d="M0,20 Q10,5 20,20 T40,20 T60,20 T80,20 T100,20" fill="none" class="stroke-accent" stroke-width="2" />
-                <path d="M0,25 Q15,10 30,25 T60,25 T90,25 T100,25" fill="none" class="stroke-white/20" stroke-width="1" />
-              </svg>
-            </div>
-          </div>
-
-          <!-- Shield (Standard Box) -->
-          <div class="glass-panel !bg-emerald-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-500/40 transition-all duration-500 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[50px] rounded-full group-hover:bg-emerald-500/20 transition-colors"></div>
-            
-            <div class="relative z-10">
-              <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                <span class="material-icons text-emerald-400 text-xl">shield</span>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Threat Shield</h3>
-              <p class="text-sm text-slate-400 font-light leading-relaxed">
-                Adaptive DDoS protection & threat intelligence firewall.
-              </p>
-            </div>
-            <div class="relative z-10 mt-6 pt-4 border-t border-white/5">
-               <p class="font-mono text-[10px] text-slate-500 uppercase mb-2">Defense Matrix</p>
-               <div class="flex items-center gap-1 h-3">
-                  <div class="h-full bg-emerald-500 shadow-[0_0_10px_#10b981] rounded-full" style="width:82%"></div>
-                  <div class="h-full bg-amber-500/50 rounded-full" style="width:12%"></div>
-                  <div class="h-full bg-rose-500/50 rounded-full" style="width:6%"></div>
-               </div>
-            </div>
-          </div>
-
-          <!-- Logs (Standard Box now) -->
-          <div class="glass-panel !bg-primary/5 group rounded-3xl p-6 sm:p-8 flex flex-col hover:border-primary/40 transition-all duration-500 relative overflow-hidden">
-            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
-            
-            <div class="relative z-10">
-              <div class="flex items-center justify-between mb-8">
-                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  <span class="material-icons text-primary text-xl">analytics</span>
-                </div>
-                <div class="flex gap-1 h-3 mt-1">
-                  <div class="w-1.5 h-full bg-primary/20 rounded-full"></div>
-                  <div class="w-1.5 h-full bg-primary/60 rounded-full"></div>
-                  <div class="w-1.5 h-full bg-primary shadow-[0_0_8px_#3b82f6] rounded-full animate-pulse"></div>
-                </div>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Deep Logs</h3>
-              <p class="text-slate-400 font-light leading-relaxed">
-                Ingest NetFlow, IPFIX, and device syslogs natively. AI-assisted traffic visibility and bandwidth accounting built in.
-              </p>
-            </div>
-            
-            <div class="relative z-10 flex-1 flex flex-col justify-end mt-8">
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
-                    <span>Syslog Ingest</span>
-                    <span class="text-slate-900 dark:text-white">8.4M/s</span>
-                  </div>
-                  <div class="h-1 bg-slate-200 dark:bg-white/5 rounded-full overflow-hidden">
-                    <div class="h-full bg-primary w-[85%]"></div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
-                    <span>NetFlow Processing</span>
-                    <span class="text-slate-900 dark:text-white">12.1GB/s</span>
-                  </div>
-                  <div class="h-1 bg-slate-200 dark:bg-white/5 rounded-full overflow-hidden">
-                    <div class="h-full bg-accent w-[60%]"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <!-- ACS (Standard Box) -->
-          <div class="glass-panel !bg-accent-2/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-accent-2/40 transition-all duration-500 relative overflow-hidden">
-            <div class="absolute -top-10 -left-10 w-40 h-40 bg-accent-2/10 blur-[60px] rounded-full group-hover:bg-accent-2/20 transition-colors"></div>
-            
-            <div class="relative z-10">
-               <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center mb-6">
-                <span class="material-icons text-accent-2 text-xl">settings_remote</span>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">ACS Core</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                TR-069 / TR-369 protocol support for zero-touch provisioning.
-              </p>
-            </div>
-            <div class="relative z-10 mt-6 pt-4 border-t border-slate-200 dark:border-white/5">
-              <p class="font-mono text-2xl font-bold text-slate-900 dark:text-white">6,120 <span class="text-xs font-sans font-light text-slate-500">CPEs</span></p>
-            </div>
-          </div>
-
-          <!-- Incident Management (Standard Box) -->
-          <div class="glass-panel !bg-amber-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-amber-500/40 transition-all duration-500">
-            <div class="relative z-10">
-              <div class="flex items-center justify-between mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                  <span class="material-icons text-amber-400 text-xl">confirmation_number</span>
-                </div>
-                <span class="text-amber-400 font-mono text-xs bg-amber-400/10 px-2 py-0.5 rounded">12 OPEN</span>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Incident Ops</h3>
-              <p class="text-sm text-slate-400 font-light leading-relaxed">
-                Automated escalation pipelines & SLA tracking.
-              </p>
-            </div>
-            <div class="relative z-10 mt-6 pt-4 border-t border-white/5 flex justify-between items-end">
-               <div>
-                <p class="font-mono text-[10px] text-slate-500 uppercase">Avg MTTR</p>
-                <p class="text-xl inline-block mt-1 bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent font-bold">1.8h</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- BSS / Monetization (Spans 2 cols) -->
-          <div class="glass-panel !bg-violet-500/5 group rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-violet-300 dark:hover:border-violet-500/40 transition-all duration-500 md:col-span-2 relative overflow-hidden">
-            <div class="absolute -right-16 -bottom-16 w-56 h-56 bg-violet-400/15 dark:bg-violet-500/20 blur-[80px] rounded-full group-hover:bg-violet-400/25 dark:group-hover:bg-violet-500/30 transition-colors"></div>
-            <div class="absolute top-0 left-1/3 w-40 h-40 bg-indigo-400/10 dark:bg-indigo-500/10 blur-[60px] rounded-full pointer-events-none"></div>
-            
-            <div class="relative z-10 flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-              <div class="max-w-xs">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-500/15 dark:to-indigo-500/15 border border-violet-200 dark:border-violet-500/25 flex items-center justify-center mb-6">
-                  <span class="material-icons text-violet-600 dark:text-violet-400 text-xl">storefront</span>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Business Support (CRM)</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                  Unified commercial management. Sync inventory, coordinate resellers, and construct complex product plans programmatically.
-                </p>
-                <div class="mt-4 pt-4 border-t border-violet-200/50 dark:border-violet-500/15">
-                  <p class="font-mono text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-1">Monthly Revenue</p>
-                  <p class="text-2xl font-mono font-bold bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">₹4.2Cr<span class="text-xs text-emerald-500 font-mono ml-2 bg-emerald-500/10 px-1.5 py-0.5 rounded">↑18%</span></p>
-                </div>
-              </div>
-              
-              <div class="grid grid-cols-1 gap-3 sm:min-w-[200px]">
-                <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200/60 dark:border-violet-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-violet-400">
-                  <span class="text-xs text-violet-600/70 dark:text-violet-300/70">Products</span>
-                  <span class="font-mono text-sm font-semibold text-violet-700 dark:text-violet-300">248</span>
-                </div>
-                <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200/60 dark:border-indigo-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-indigo-400">
-                  <span class="text-xs text-indigo-600/70 dark:text-indigo-300/70">Inventory</span>
-                  <span class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">12.4K</span>
-                </div>
-                <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200/60 dark:border-fuchsia-500/15 rounded-xl p-3 flex items-center justify-between border-l-2 border-l-fuchsia-400">
-                  <span class="text-xs text-fuchsia-600/70 dark:text-fuchsia-300/70">Resellers</span>
-                  <span class="font-mono text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">86</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- PROBLEM / RISK -->
     <section class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 section-fade"
@@ -1142,6 +1142,11 @@
             
             <form action="#" method="POST" class="space-y-5">
               <div>
+                <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Full name</label>
+                <input type="text" name="name" required placeholder="John Doe"
+                       class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
+              </div>
+              <div>
                 <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Work email</label>
                 <input type="email" name="email" id="demo-email" required placeholder="name@company.com"
                        class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
@@ -1237,7 +1242,7 @@
               <span class="font-bold text-slate-900 dark:text-white tracking-tight text-lg">Is it available via Docker/Kubernetes on‑prem?</span>
               <div class="faq-icon material-icons text-slate-400 transition-transform bg-white/5 rounded-full p-1">add</div>
             </button>
-            <div class="px-6 pb-6 text-sm text-slate-400 font-light leading-relaxed hidden border-t border-white/5 pt-4 mt-2">
+            <div class="px-6 pb-6 text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed hidden border-t border-slate-200 dark:border-white/5 pt-4 mt-2">
               Yes. In addition to our managed cloud plane, Neurix supports bare-metal, VM, and Kubernetes deployments for
               customers with strict data residency, air-gapped security needs, or custom internal integrations.
             </div>
