@@ -10,6 +10,7 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
   <script id="tailwind-config">
@@ -1026,35 +1027,41 @@
           </div>
 
           <!-- Tech Stack Stats -->
-          <div class="flex flex-wrap items-center gap-4 text-xs font-mono font-medium">
+          <div class="flex flex-wrap items-start gap-4 text-xs font-mono font-medium">
             <div class="text-center">
-              <span class="material-icons text-cyan-500 text-2xl mb-1">code</span>
-              <p class="text-xl font-bold text-slate-900 dark:text-white">Go</p>
+              <div class="h-8 flex items-center justify-center">
+                <i class="devicon-go-original-wordmark text-3xl text-cyan-600 dark:text-cyan-400"></i>
+              </div>
               <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">Core Engine</p>
             </div>
             <div class="w-px h-12 bg-slate-200 dark:bg-white/10 mx-2"></div>
             <div class="text-center">
-              <span class="material-icons text-violet-500 text-2xl mb-1">schedule</span>
-              <p class="text-xl font-bold text-slate-900 dark:text-white">Temporal</p>
+              <div class="h-8 flex items-center justify-center">
+                <img src="https://cdn.simpleicons.org/natsdotio/27AAE1" alt="NATS.io" class="w-7 h-7 dark:brightness-150" />
+              </div>
+              <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">Messaging</p>
+            </div>
+            <div class="w-px h-12 bg-slate-200 dark:bg-white/10 mx-2"></div>
+            <div class="text-center">
+              <div class="h-8 flex items-center justify-center">
+                <img src="https://cdn.simpleicons.org/temporal/7c3aed" alt="Temporal" class="w-7 h-7 dark:brightness-150" />
+              </div>
               <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">Orchestration</p>
             </div>
             <div class="w-px h-12 bg-slate-200 dark:bg-white/10 mx-2"></div>
             <div class="text-center">
-              <span class="material-icons text-amber-500 text-2xl mb-1">storage</span>
-              <p class="text-xl font-bold text-slate-900 dark:text-white">TSDB</p>
-              <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">TimescaleDB</p>
-            </div>
-            <div class="w-px h-12 bg-slate-200 dark:bg-white/10 mx-2"></div>
-            <div class="text-center">
-              <span class="material-icons text-rose-500 text-2xl mb-1">bolt</span>
-              <p class="text-xl font-bold text-slate-900 dark:text-white">Redis</p>
+              <div class="h-8 flex items-center justify-center">
+                <i class="devicon-redis-plain text-3xl text-rose-600 dark:text-rose-400"></i>
+              </div>
               <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">Cache Layer</p>
             </div>
             <div class="w-px h-12 bg-slate-200 dark:bg-white/10 mx-2"></div>
             <div class="text-center">
-              <span class="material-icons text-emerald-500 text-2xl mb-1">sync_alt</span>
-              <p class="text-xl font-bold text-slate-900 dark:text-white">NATS</p>
-              <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">Messaging</p>
+              <div class="h-8 flex items-center justify-center gap-2">
+                <i class="devicon-postgresql-plain text-2xl text-blue-600 dark:text-blue-400"></i>
+                <i class="devicon-mongodb-plain text-2xl text-emerald-600 dark:text-emerald-400"></i>
+              </div>
+              <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-1">Data Layer</p>
             </div>
           </div>
 
