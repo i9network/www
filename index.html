@@ -234,14 +234,14 @@
   <header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-white/5 bg-white/70 dark:bg-black/30 backdrop-blur-2xl transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2.5">
-        <img src="assets/logo-light.png" alt="i9 Networks" class="h-7 w-auto block dark:hidden" />
-        <img src="assets/logo-dark.png" alt="i9 Networks" class="h-7 w-auto hidden dark:block" />
+        <img src="assets/logo-light.png" alt="i9 Networks" class="h-[2.7rem] w-auto block dark:hidden" />
+        <img src="assets/logo-dark.png" alt="i9 Networks" class="h-[2.7rem] w-auto hidden dark:block" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400">
-        <a href="#platform" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Platform</a>
-        <a href="#industries" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Industries</a>
-        <a href="#architecture" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Architecture</a>
+        <a href="#platform" onclick="event.preventDefault(); document.getElementById('platform').scrollIntoView({behavior:'smooth'})" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Platform</a>
+        <a href="#industries" onclick="event.preventDefault(); document.getElementById('industries').scrollIntoView({behavior:'smooth'})" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Industries</a>
+        <a href="#architecture" onclick="event.preventDefault(); document.getElementById('architecture').scrollIntoView({behavior:'smooth'})" class="hover:text-rose-600 dark:hover:text-primary transition-colors">Architecture</a>
 
       </nav>
 
@@ -249,7 +249,7 @@
         <button onclick="toggleTheme()" class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-primary hover:bg-slate-100 dark:hover:bg-white/10 transition-all" title="Toggle theme">
           <span id="theme-toggle-icon" class="material-icons text-[20px]">dark_mode</span>
         </button>
-        <a href="#demo"
+        <a href="#demo" onclick="event.preventDefault(); document.getElementById('demo').scrollIntoView({behavior:'smooth'}); setTimeout(()=>document.getElementById('demo-name')?.focus({preventScroll:true}),500)"
            class="inline-flex items-center gap-2 rounded-lg border border-rose-500/50 bg-rose-500/10 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-rose-600 dark:text-white shadow-[0_0_15px_rgba(244,63,94,0.15)] dark:shadow-[0_0_15px_rgba(244,63,94,0.3)] hover:bg-rose-500/20 hover:shadow-[0_0_20px_rgba(244,63,94,0.3)] dark:hover:shadow-[0_0_20px_rgba(244,63,94,0.5)] transition-all">
           <span>Request Demo</span>
           <span class="material-icons text-sm">arrow_forward</span>
@@ -293,14 +293,14 @@
           </div>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#demo"
+            <a href="#demo" onclick="event.preventDefault(); document.getElementById('demo').scrollIntoView({behavior:'smooth'}); setTimeout(()=>document.getElementById('demo-name')?.focus({preventScroll:true}),500)"
                class="relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold tracking-wide text-white transition-all hover:scale-105 group overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent-2 opacity-90 group-hover:opacity-100 transition-opacity"></div>
               <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] mix-blend-overlay"></div>
               <span class="relative z-10 text-shadow-sm">Initialize Demo</span>
               <span class="relative z-10 material-icons text-sm transition-transform group-hover:translate-x-1">bolt</span>
             </a>
-            <a href="#platform"
+            <a href="#platform" onclick="event.preventDefault(); document.getElementById('platform').scrollIntoView({behavior:'smooth'})"
                class="glass-button inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
               <span class="material-icons text-sm text-accent">terminal</span>
               <span>Explore Platform</span>
@@ -410,7 +410,7 @@
 
     <!-- WHO IT'S FOR -->
     <!-- PLATFORM (BENTO BOX) -->
-    <section id="platform" class="bg-gray-50 dark:bg-[#050505] relative border-t border-slate-200 dark:border-white/5 overflow-hidden">
+    <section id="platform" class="bg-gray-50 dark:bg-[#050505] relative border-t border-slate-200 dark:border-white/5 overflow-hidden" style="scroll-margin-top: 4rem; min-height: calc(100vh - 4rem);">
       <!-- Ambient Background -->
       <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjwvc3ZnPg==')] opacity-30"></div>
       <div class="absolute right-0 top-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
@@ -633,7 +633,7 @@
       </div>
     </section>
 
-    <section id="industries" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+    <section id="industries" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden" style="scroll-margin-top: 4rem; min-height: calc(100vh - 4rem);">
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade text-slate-900 dark:text-white" data-animate>
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 mb-12">
@@ -899,7 +899,7 @@
 </script>
 
     <!-- PROBLEM / RISK -->
-    <section class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+    <section class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden" style="min-height: calc(100vh - 4rem);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 section-fade"
            data-animate>
         <div class="space-y-6">
@@ -995,7 +995,7 @@
     </section>
 
     <!-- ARCHITECTURE -->
-    <section id="architecture" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+    <section id="architecture" class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden" style="scroll-margin-top: 4rem; min-height: calc(100vh - 4rem);">
       <!-- Glow -->
       <div class="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-accent-2/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
 
@@ -1091,7 +1091,7 @@
     </section>
 
     <!-- SEO BLOCK -->
-    <section id="resources" class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+    <section id="demo" class="bg-white dark:bg-[#000] border-t border-slate-200 dark:border-white/5 relative overflow-hidden" style="scroll-margin-top: 4rem; min-height: calc(100vh - 4rem);">
       <!-- Glow -->
       <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
 
@@ -1153,7 +1153,7 @@
         
 
         <!-- LEAD CAPTURE FORM -->
-        <div id="demo" class="glass-panel p-6 sm:p-8 rounded-[2rem] w-full max-w-md mx-auto lg:ml-auto border-slate-200 dark:border-white/10 shadow-2xl shadow-primary/5 dark:shadow-primary/10 relative overflow-hidden">
+        <div class="glass-panel p-6 sm:p-8 rounded-[2rem] w-full max-w-md mx-auto lg:ml-auto border-slate-200 dark:border-white/10 shadow-2xl shadow-primary/5 dark:shadow-primary/10 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 dark:bg-primary/20 rounded-full blur-[50px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
           
           <div class="relative z-10">
@@ -1162,7 +1162,7 @@
             <form action="#" method="POST" class="space-y-5">
               <div>
                 <label class="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 mb-2">Full name</label>
-                <input type="text" name="name" required placeholder="John Doe"
+                <input type="text" name="name" id="demo-name" required placeholder="John Doe"
                        class="block w-full rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-black/50 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" />
               </div>
               <div>
@@ -1211,7 +1211,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+    <section class="bg-gray-50 dark:bg-[#050505] border-t border-slate-200 dark:border-white/5 relative overflow-hidden" style="min-height: calc(100vh - 4rem);">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 section-fade" data-animate>
         <div class="text-center mb-16">
           <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-primary">KNOWLEDGE_BASE</p>
